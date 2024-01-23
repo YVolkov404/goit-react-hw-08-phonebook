@@ -1,6 +1,10 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { ChakraProvider, theme } from '@chakra-ui/react';
+import {
+  ChakraBaseProvider,
+  extendBaseTheme,
+  theme as chakraTheme,
+} from '@chakra-ui/react';
 import { Home } from './routes/Home/Home';
 // import { Register } from 'routes/Register/Register';
 // import { Profile } from 'routes/Profile/Profile';
@@ -8,9 +12,23 @@ import { Home } from './routes/Home/Home';
 // import { Contacts } from 'routes/Contacts/Contacts';
 // import { Info } from 'routes/Info/Info';
 
+const { Button } = chakraTheme.components;
+
+const theme = extendBaseTheme({
+  components: {
+    Button,
+  },
+  argTypes: {
+    label: {
+      control: 'text',
+      description: 'Overwritten description',
+    },
+  },
+});
+
 function App() {
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraBaseProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Home />}>
           {/* <Route path="register" element={<Register />}>
@@ -24,7 +42,7 @@ function App() {
           </Route> */}
         </Route>
       </Routes>
-    </ChakraProvider>
+    </ChakraBaseProvider>
   );
 }
 

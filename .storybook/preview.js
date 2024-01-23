@@ -1,6 +1,10 @@
 /** @type { import('@storybook/react').Preview } */
+
 const preview = {
   parameters: {
+    argTypes: {
+      disable: true,
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {

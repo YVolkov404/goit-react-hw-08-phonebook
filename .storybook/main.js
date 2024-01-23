@@ -10,15 +10,6 @@ const config = {
     '@chakra-ui/storybook-addon',
   ],
   features: { emotionAlias: false },
-  webpackFinal: async config => {
-    config.module.rules.push({
-      test: /\.mjs$/,
-      include: /node_modules/,
-      type: 'javascript/auto',
-    });
-
-    return config;
-  },
   framework: {
     name: '@storybook/react-webpack5',
     options: {
