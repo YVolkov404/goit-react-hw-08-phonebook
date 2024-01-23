@@ -1,23 +1,19 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import {
-  ChakraProvider,
-  theme,
-  Home,
-  Register,
-  Profile,
-  Login,
-  Contacts,
-  Info,
-} from '@chakra-ui/react';
-// import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { Route, Routes } from 'react-router-dom';
+import { ChakraProvider, theme } from '@chakra-ui/react';
+import { Home } from './routes/Home/Home';
+// import { Register } from 'routes/Register/Register';
+// import { Profile } from 'routes/Profile/Profile';
+// import { Login } from 'routes/Login/Login';
+// import { Contacts } from 'routes/Contacts/Contacts';
+// import { Info } from 'routes/Info/Info';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route path="register" element={<Register />}>
+          {/* <Route path="register" element={<Register />}>
             <Route path="profile" element={<Profile />} />
           </Route>
           <Route path="login" element={<Login />}>
@@ -25,7 +21,7 @@ function App() {
               <Route path="info" element={<Info />} />
               <Route path="profile" element={<Profile />} />
             </Route>
-          </Route>
+          </Route> */}
         </Route>
       </Routes>
     </ChakraProvider>
@@ -33,6 +29,22 @@ function App() {
 }
 
 export default App;
+
+// import { ColorModeSwitcher } from './ColorModeSwitcher';
+
+// const NavBar = () => (
+//   <HStack as="nav">
+//     <RouteLink to="/">
+//       <Link text="Home" />
+//     </RouteLink>
+//     <RouteLink to="/register">
+//       <Link text="Register" />
+//     </RouteLink>
+//     <RouteLink to="/login">
+//       <Link text="Login" />
+//     </RouteLink>
+//   </HStack>
+// );
 
 // {/* <Box textAlign="center" fontSize="xl">
 //   <Grid minH="100vh" p={3}>
