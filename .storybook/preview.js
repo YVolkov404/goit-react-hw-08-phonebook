@@ -7,13 +7,6 @@ import {
   Controls,
   Stories,
 } from '@storybook/blocks';
-const theme = require('../src/App');
-
-import { DocsContainer } from '@storybook/blocks';
-
-const ExampleContainer = ({ children, ...props }) => {
-  return <DocsContainer {...props}>{children}</DocsContainer>;
-};
 
 const preview = {
   parameters: {
@@ -26,7 +19,7 @@ const preview = {
     },
     docs: {
       toc: {
-        container: ExampleContainer,
+        theme: themes.dark,
         contentsSelector: '.sbdocs-content',
         headingSelector: 'h1, h2, h3',
         ignoreSelector: '#primary',
@@ -45,9 +38,6 @@ const preview = {
             <Stories />
           </>
         ),
-      },
-      chakra: {
-        theme,
       },
     },
   },

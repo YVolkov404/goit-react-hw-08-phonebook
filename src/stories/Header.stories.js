@@ -14,7 +14,7 @@ export default {
 export const LoggedIn = {
   args: {
     user: {
-      name: 'fantom_ass',
+      name: 'Jane Dow',
     },
   },
 };
