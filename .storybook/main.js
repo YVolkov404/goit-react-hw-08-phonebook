@@ -1,15 +1,14 @@
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  features: { emotionAlias: false },
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/preset-create-react-app',
     '@storybook/addon-onboarding',
-    '@storybook/addon-interactions',
     '@chakra-ui/storybook-addon',
   ],
-  features: { emotionAlias: false },
   framework: {
     name: '@storybook/react-webpack5',
     options: {
@@ -19,8 +18,20 @@ const config = {
     },
   },
   docs: {
+    //👇 See the table below for the list of supported options
     autodocs: 'tag',
+    defaultName: 'Documentation',
+  },
+  webpackFinal: async config => {
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: 'javascript/auto',
+    });
+
+    return config;
   },
   staticDirs: ['../public'],
 };
+
 export default config;

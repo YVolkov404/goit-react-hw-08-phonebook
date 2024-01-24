@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import {
-  ChakraBaseProvider,
+  ChakraProvider,
   extendBaseTheme,
   theme as chakraTheme,
 } from '@chakra-ui/react';
@@ -18,17 +18,11 @@ const theme = extendBaseTheme({
   components: {
     Button,
   },
-  argTypes: {
-    label: {
-      control: 'text',
-      description: 'Overwritten description',
-    },
-  },
 });
 
 function App() {
   return (
-    <ChakraBaseProvider theme={theme}>
+    <ChakraProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Home />}>
           {/* <Route path="register" element={<Register />}>
@@ -42,7 +36,7 @@ function App() {
           </Route> */}
         </Route>
       </Routes>
-    </ChakraBaseProvider>
+    </ChakraProvider>
   );
 }
 
