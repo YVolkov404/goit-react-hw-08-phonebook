@@ -29,8 +29,8 @@ export const ContactsPage = data => {
         direction='column'
         height='100%'
       >
-        <HStack justify='flex-end'>
-          <Link>
+        <HStack justify='flex-end' gap={'2rem'}>
+          <Link to={`/profile`}>
             <Text
               w='100%'
               h='auto'
@@ -41,6 +41,7 @@ export const ContactsPage = data => {
             >
               Usercat
             </Text>
+
             <Divider
               border='xl'
               opacity='1'
@@ -49,14 +50,8 @@ export const ContactsPage = data => {
               borderColor='red.400'
             />
           </Link>
-          <Link>
-            <Avatar
-              size='xl'
-              src='https://bit.ly/broken-link'
-              variant='roundedSquare'
-            >
-              <BiGame size='md' color='yellow.500' />
-            </Avatar>
+          <Link to={'/Profile'}>
+            <Avatar size='xl' variant='roundedSquare' bg={'blue.400'} />
           </Link>
         </HStack>
 
@@ -73,12 +68,14 @@ export const ContactsPage = data => {
         <Stack
           w='100%'
           h='600px'
-          py='1rem'
-          px='2rem'
+          p='1rem 3rem 3rem 3rem'
           bgColor='yellow.50'
           align='center'
         >
-          <ModalBox />
+          <Box w={'100%'} h={'8rem'} textAlign={'center'}>
+            <ModalBox />
+          </Box>
+
           <ReactShadowScroll
             scrollColor='#F56565'
             scrollColorHover='#63B3ED'

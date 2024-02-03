@@ -62,6 +62,7 @@ const baseStyle = definePartsStyle(props => ({
     height: '600px',
     p: '0',
     border: '2rem solid',
+    borderRadius: '2xl',
 
     bg: 'yellow.50',
     borderColor: 'green.50',

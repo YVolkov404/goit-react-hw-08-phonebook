@@ -16,13 +16,12 @@ function App() {
     <Routes>
       <Route path='/' element={<AppLayout />}>
         <Route index element={<Home />} />
-        <Route path='register' element={<Register />}>
-          <Route path='profile' element={<Profile />} />
-        </Route>
+        <Route path='register' element={<Register />} />
+        <Route path='profile' element={<Profile />} />
         <Route path='login' element={<Login />} />
-        <Route path='contacts' element={<Contacts />}>
+        <Route path='contacts' element={<Contacts />} />
+        <Route path='contacts/:id' element={<Contacts />}>
           <Route path='info' element={<Info />} />
-          <Route path='profile' element={<Profile />} />
         </Route>
       </Route>
       <Route path='*' element={<NotFound />} />
