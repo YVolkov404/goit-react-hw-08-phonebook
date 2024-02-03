@@ -15,21 +15,16 @@ import {
   InputGroup,
 } from '@chakra-ui/react';
 
-import { HiUserCircle, HiMail, HiKey } from 'react-icons/hi';
+import { HiMail, HiKey } from 'react-icons/hi';
 
-export const SignUpForm = () => {
+export const SignInForm = () => {
   return (
     <Formik
       initialValues={{
-        username: '',
         email: '',
         password: '',
       }}
       validationSchema={Yup.object({
-        name: Yup.string()
-          .min(5, 'Name too short!')
-          .max(24, 'Name too long!')
-          .required('Required'),
         email: Yup.string().email('Invalid email').required('Required'),
         password: Yup.string()
           .min(5, 'Password too short!')
@@ -45,33 +40,9 @@ export const SignUpForm = () => {
         <Stack
           as='form'
           w='100%'
-          spacing='1.75rem'
+          spacing='1.5rem'
           onSubmit={formik.handleSubmit}
         >
-          <FormControl
-            isInvalid={formik.errors.username && formik.touched.username}
-          >
-            <FormLabel as='label' fontSize='3xl' mb='0'>
-              Name
-            </FormLabel>
-            <Tooltip
-              label={formik.errors.username}
-              isOpen={true}
-              placement='top-end'
-            >
-              <InputGroup>
-                <InputLeftAddon bgColor='green.50'>
-                  <Icon as={HiUserCircle} boxSize='2.25em' fill='blue.400' />
-                </InputLeftAddon>
-                <Input
-                  name='username'
-                  {...formik.getFieldProps('username')}
-                  placeholder='John Dow'
-                />
-              </InputGroup>
-            </Tooltip>
-          </FormControl>
-
           <FormControl isInvalid={formik.errors.email && formik.touched.email}>
             <FormLabel as='label' fontSize='3xl' mb='0'>
               Email
@@ -84,7 +55,7 @@ export const SignUpForm = () => {
             >
               <InputGroup>
                 <InputLeftAddon bgColor='green.50'>
-                  <Icon as={HiMail} boxSize='2.25em' fill='blue.400' />
+                  <Icon as={HiMail} boxSize='2.25em' fill='red.400' />
                 </InputLeftAddon>
                 <Input
                   name='email'
@@ -109,7 +80,7 @@ export const SignUpForm = () => {
             >
               <InputGroup>
                 <InputLeftAddon bgColor='green.50'>
-                  <Icon as={HiKey} boxSize='2.25em' fill='blue.400' />
+                  <Icon as={HiKey} boxSize='2.25em' fill='red.400' />
                 </InputLeftAddon>
                 <Input
                   name='password'
@@ -125,11 +96,13 @@ export const SignUpForm = () => {
             type='submit'
             zIndex='333'
             as={Link}
-            to='/profile'
+            to='/contacts'
             width='xs'
-            mt='3rem'
+            variant='secondary'
+            ml='30px'
+            mt='50px'
           >
-            SignUp
+            SignIn
           </Button>
         </Stack>
       )}

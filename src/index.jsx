@@ -16,7 +16,7 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <StrictMode>
     <BrowserRouter basename='/goit-react-hw-08-phonebook'>
-      <ChakraProvider theme={theme}>
+      <ChakraProvider resetCSS theme={theme}>
         <App />
       </ChakraProvider>
     </BrowserRouter>

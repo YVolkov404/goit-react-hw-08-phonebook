@@ -8,53 +8,29 @@ export const RegisterPage = () => {
   return (
     <Box as='section' bg='yellow.50' borderColor='red.400'>
       <Flex
-        minW='600'
         position='relative'
         align='center'
-        justify='space-around'
+        justify='space-between'
         direction='column'
-        p='115px 58px 215px 58px'
-        h='100%'
+        height='100%'
       >
-        <HStack w='100%' justify='space-between' px='30px'>
-          <Button
-            as={Link}
-            to='/'
-            size='lg'
-            color='blue.400'
-            variant='outline'
-            _hover={{
-              color: 'blue.400',
-              borderBottom: '0.15rem solid',
-            }}
-          >
+        <HStack w='100%' justify='space-between'>
+          <Button as={Link} to='/' variant='secondary'>
             Home
           </Button>
-          <Button
-            as={Link}
-            to='/login'
-            size='lg'
-            color='blue.400'
-            variant='outline'
-            _hover={{
-              color: 'blue.400',
-              borderBottom: '0.15rem solid',
-            }}
-          >
+          <Button as={Link} to='/login' variant='secondary'>
             SignIn
           </Button>
         </HStack>
-        <Heading color='red.400' size='2xl' variant='shadow' mt='40px'>
+        <Heading as='h1' variant='secondary'>
           Let Us Begin
         </Heading>
-        <SignUpForm />
-        <Image
-          position='absolute'
-          bottom='115px'
-          right='100px'
-          src={regPgImg}
-          alr='Cat'
-        />
+        <Box mb='8rem'>
+          <SignUpForm />
+        </Box>
+        <Box position='absolute' bottom='0' right='0'>
+          <Image src={regPgImg} alr='Cat' />
+        </Box>
       </Flex>
     </Box>
   );

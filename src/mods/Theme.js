@@ -1,6 +1,13 @@
 import { extendTheme } from '@chakra-ui/react';
 import { containerTheme } from 'components/layout/Layout.styled';
-import { headingTheme, buttonTheme } from 'components/home/HomePage.styled';
+import { headingTheme } from 'components/styles/Heading.theme';
+import { tooltipTheme } from 'components/styles/Tooltip.theme';
+//---------------------------------------------------------------
+import { inputTheme } from 'components/contacts/Input.styled';
+import { skeletonTheme } from 'components/contacts/Skeleton.styled';
+import { buttonTheme } from 'components/styles/Button.theme';
+import { modalTheme } from 'components/modal/Modal.styled';
+
 // import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 const theme = extendTheme({
@@ -8,20 +15,24 @@ const theme = extendTheme({
     global: {
       'html, body': {
         fontFamily: 'Josefin Slab, serif',
-        fontWeight: 'semibold11',
+        fontWeight: 'semibold',
         color: 'gray.600',
       },
       section: {
         // iPAd mini 8.3 portrait view
-        w: '744px',
-        h: '1133px',
-        border: '2px solid',
+        w: '717px',
+        h: '1106px',
+        border: '3px solid',
         borderRadius: '3xl', // 12px
         boxShadow: 'lg',
+        p: '115px 58px',
       },
-      p: {
+      'p, label': {
         fontSize: '4xl',
-        letterSpacing: '0.225em',
+        letterSpacing: '0.22em',
+      },
+      svg: {
+        fill: 'green.50',
       },
     },
     colors: {
@@ -35,9 +46,13 @@ const theme = extendTheme({
     },
   },
   components: {
-    Container: containerTheme,
-    Heading: headingTheme,
     Button: buttonTheme,
+    Container: containerTheme,
+    Skeleton: skeletonTheme,
+    Heading: headingTheme,
+    Tooltip: tooltipTheme,
+    Input: inputTheme,
+    Modal: modalTheme,
   },
 });
 
