@@ -3,8 +3,8 @@ import { containerTheme } from 'components/layout/Layout.styled';
 import { headingTheme } from 'components/styles/Heading.theme';
 import { tooltipTheme } from 'components/styles/Tooltip.theme';
 //---------------------------------------------------------------
-import { inputTheme } from 'components/contacts/Input.styled';
-import { skeletonTheme } from 'components/contacts/Skeleton.styled';
+import { inputTheme } from 'components/styles/Input.theme';
+import { skeletonTheme } from 'components/styles/Skeleton.theme';
 import { buttonTheme } from 'components/styles/Button.theme';
 import { modalTheme } from 'components/modal/Modal.styled';
 
@@ -15,24 +15,22 @@ const theme = extendTheme({
     global: {
       'html, body': {
         fontFamily: 'Josefin Slab, serif',
+        fontSize: 'md',
+        letterSpacing: '0.125em',
         fontWeight: 'semibold',
         color: 'gray.600',
       },
       section: {
-        // iPAd mini 8.3 portrait view
-        w: '717px',
-        h: '1106px',
+        w: '560px',
+        h: '947px',
         border: '3px solid',
-        borderRadius: '3xl', // 12px
+        borderRadius: '3xl',
         boxShadow: 'lg',
-        p: '115px 58px',
+        p: '5rem 2rem',
       },
       'p, label': {
-        fontSize: '4xl',
-        letterSpacing: '0.22em',
-      },
-      svg: {
-        fill: 'green.50',
+        fontSize: '3xl',
+        letterSpacing: '0.125em',
       },
     },
     colors: {

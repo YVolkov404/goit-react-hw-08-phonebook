@@ -47,7 +47,7 @@ export const ModalForm = () => {
           <FormControl
             isInvalid={formik.errors.username && formik.touched.username}
           >
-            <FormLabel as='label' fontSize='3xl' mb='0' color='blue.400'>
+            <FormLabel as='label' fontSize='2xl' mb='0' color='blue.400'>
               Name
             </FormLabel>
 
@@ -65,6 +65,7 @@ export const ModalForm = () => {
                   name='username'
                   {...formik.getFieldProps('username')}
                   placeholder='John Dow'
+                  variant={'secondary'}
                 />
               </InputGroup>
             </Tooltip>
@@ -73,7 +74,7 @@ export const ModalForm = () => {
           <FormControl
             isInvalid={formik.errors.number && formik.touched.number}
           >
-            <FormLabel as='label' fontSize='3xl' mb='0' color='blue.400'>
+            <FormLabel as='label' fontSize='2xl' mb='0' color='blue.400'>
               Number
             </FormLabel>
 
@@ -92,6 +93,7 @@ export const ModalForm = () => {
                   type='number'
                   {...formik.getFieldProps('number')}
                   placeholder='+38()'
+                  variant={'secondary'}
                 />
               </InputGroup>
             </Tooltip>

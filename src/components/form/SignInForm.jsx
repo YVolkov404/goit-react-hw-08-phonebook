@@ -61,6 +61,7 @@ export const SignInForm = () => {
                   name='email'
                   {...formik.getFieldProps('email')}
                   placeholder='john-dow@mail.com'
+                  variant={'primary'}
                 />
               </InputGroup>
             </Tooltip>
@@ -87,6 +88,7 @@ export const SignInForm = () => {
                   type='password'
                   {...formik.getFieldProps('password')}
                   placeholder='Password'
+                  variant={'primary'}
                 />
               </InputGroup>
             </Tooltip>
@@ -94,12 +96,11 @@ export const SignInForm = () => {
 
           <Button
             type='submit'
-            zIndex='333'
             as={Link}
             to='/contacts'
-            width='xs'
             variant='secondary'
-            ml='30px'
+            width='xs'
+            zIndex='333'
             mt='50px'
           >
             SignIn

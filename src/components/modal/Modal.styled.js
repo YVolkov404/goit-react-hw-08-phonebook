@@ -59,9 +59,9 @@ const baseStyle = definePartsStyle(props => ({
     baseStyleDialogContainer,
   },
   dialog: {
-    height: '600px',
+    height: '500px',
     p: '0',
-    border: '2rem solid',
+    border: '1rem solid',
     borderRadius: '2xl',
 
     bg: 'yellow.50',
@@ -70,7 +70,8 @@ const baseStyle = definePartsStyle(props => ({
 
   header: {
     mx: '0.5rem',
-    my: '2.5rem',
+    mt: '3rem',
+    mb: '1.5rem',
     padding: '0',
     fontSize: '4xl',
     fontWeight: 'semibold',
@@ -131,5 +132,5 @@ const sizes = {
 export const modalTheme = defineMultiStyleConfig({
   baseStyle,
   sizes,
-  defaultProps: { size: '2xl' },
+  defaultProps: { size: 'lg' },
 });

@@ -22,12 +22,10 @@ export const LoginPage = () => {
           </Button>
         </HStack>
 
-        <Heading color='blue.400' letterSpacing='0.14em' mt='4rem'>
-          Welcome Back
-        </Heading>
+        <Heading letterSpacing='0.165em'>Welcome Back</Heading>
         <SignInForm />
-        <Box>
-          <Image src={LogPgImg} alr='Kitty' />
+        <Box alignSelf={'flex-end'}>
+          <Image src={LogPgImg} alr='Kitty' width={'80%'} ml={'5rem'} />
         </Box>
       </Flex>
     </Box>

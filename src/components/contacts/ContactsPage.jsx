@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactShadowScroll from 'react-shadow-scroll';
+import ReactShadowScrollComponent from 'react-shadow-scroll';
 import {
   Avatar,
   Box,
@@ -12,14 +12,17 @@ import {
   InputLeftElement,
   Text,
   Stack,
-  List,
-  ListItem,
+  Image,
+  // Skeleton,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { BiFilterAlt } from 'react-icons/bi';
 import { ModalBox } from 'components/modal/Modal';
+import data from '../../data.json';
+import { StackItems } from './ContactList';
+import contactsImg from '../../media/contacts.svg';
 
-export const ContactsPage = data => {
+export const ContactsPage = () => {
   return (
     <Box as='section' bg='green.50' borderColor='blue.400'>
       <Flex
@@ -29,7 +32,13 @@ export const ContactsPage = data => {
         direction='column'
         height='100%'
       >
-        <HStack justify='flex-end' gap={'2rem'}>
+        <HStack
+          position={'absolute'}
+          top={'-1.75rem'}
+          justify='flex-end'
+          alignItems={'flex-end'}
+          gap={'2rem'}
+        >
           <Link to={`/profile`}>
             <Text
               w='100%'
@@ -41,24 +50,21 @@ export const ContactsPage = data => {
             >
               Usercat
             </Text>
-
-            <Divider
-              border='xl'
-              opacity='1'
-              size='9xl'
-              variant='solid'
-              borderColor='red.400'
-            />
           </Link>
           <Link to={'/Profile'}>
-            <Avatar size='xl' variant='roundedSquare' bg={'blue.400'} />
+            <Avatar
+              size='xl'
+              variant='roundedSquare'
+              bg={'blue.400'}
+              boxShadow={'lg'}
+            />
           </Link>
         </HStack>
 
-        <FormControl>
+        <FormControl mt={'6rem'}>
           <InputGroup>
             <InputLeftElement>
-              <BiFilterAlt />
+              <BiFilterAlt currentColor='red.400' />
             </InputLeftElement>
 
             <Input variant='filled' placeholder='You can filter contacts' />
@@ -71,45 +77,26 @@ export const ContactsPage = data => {
           p='1rem 3rem 3rem 3rem'
           bgColor='yellow.50'
           align='center'
+          spacing={5}
         >
           <Box w={'100%'} h={'8rem'} textAlign={'center'}>
             <ModalBox />
           </Box>
 
-          <ReactShadowScroll
+          <ReactShadowScrollComponent
             scrollColor='#F56565'
             scrollColorHover='#63B3ED'
-            scrollWidth='20'
             shadow='none'
+            scrollWidth={20}
+            scroll-behavior='revert'
           >
-            <List>
-              <ListItem>1</ListItem>
-              <ListItem>2</ListItem>
-              <ListItem>3</ListItem>
-              <ListItem>4</ListItem>
-              <ListItem>5</ListItem>
-              <ListItem>6</ListItem>
-              <ListItem>7</ListItem>
-              <ListItem>8</ListItem>
-              <ListItem>9</ListItem>
-              <ListItem>10</ListItem>
-              <ListItem>11</ListItem>
-              <ListItem>12</ListItem>
-              <ListItem>13</ListItem>
-              <ListItem>14</ListItem>
-              <ListItem>15</ListItem>
-              <ListItem>16</ListItem>
-              <ListItem>17</ListItem>
-              <ListItem>18</ListItem>
-              <ListItem>19</ListItem>
-              <ListItem>20</ListItem>
-              <ListItem>21</ListItem>
-              <ListItem>22</ListItem>
-              <ListItem>23</ListItem>
-              <ListItem>24</ListItem>
-              <ListItem>25</ListItem>
-            </List>
-          </ReactShadowScroll>
+            <Stack spacing={2}>
+              <StackItems data={data} />
+            </Stack>
+            <Box w='100%' h='85%' bg={'yellow.50'}>
+              <Image w='100%' mt={'5rem'} src={contactsImg} alr='Cat' />
+            </Box>
+          </ReactShadowScrollComponent>
         </Stack>
       </Flex>
     </Box>

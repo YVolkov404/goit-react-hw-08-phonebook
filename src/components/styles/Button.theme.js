@@ -4,7 +4,6 @@ export const buttonTheme = {
     fontFamily: 'Lilita One, serif',
     textTransform: 'uppercase',
 
-    border: '0rem',
     borderBottom: '0.5rem solid',
     borderRadius: '3xl',
     transitionProperty: 'common',
@@ -24,14 +23,14 @@ export const buttonTheme = {
       color: 'red.400',
       _hover: {
         color: 'blue.400',
-        borderBottom: '0.15rem solid',
+        borderBottom: '0.25rem solid',
       },
     },
     secondary: {
       color: 'blue.400',
       _hover: {
         color: 'red.400',
-        borderBottom: '0.15rem solid',
+        borderBottom: '0.25rem solid',
       },
     },
   },

@@ -18,10 +18,10 @@ export const HomePage = () => {
   return (
     <Box as='section' bgColor='green.50' borderColor='blue.400'>
       <Flex align='center' justify='space-between' direction='column' h='100%'>
-        <Box as='header'>
-          <Heading as='h1'>Catsbook</Heading>
+        <Box>
+          <Heading as='h1'>Phonebook</Heading>
         </Box>
-        <Stack as='main' spacing={8}>
+        <Stack spacing={8}>
           <HStack justify='center' gap='2rem'>
             <Button as={Link} to='/register'>
               SignUp
@@ -36,7 +36,7 @@ export const HomePage = () => {
             </Button>
           </VStack>
         </Stack>
-        <Box as='footer'>
+        <Box>
           <Text fontSize='xl' fontWeight='normal'>
             fantom_ass 2014
           </Text>

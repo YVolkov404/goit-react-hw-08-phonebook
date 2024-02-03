@@ -1,8 +1,17 @@
 import { Link } from 'react-router-dom';
-import { Box, Flex, Button, Heading, HStack, Image } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Button,
+  Heading,
+  HStack,
+  Image,
+  Spacer,
+} from '@chakra-ui/react';
 
 import { SignUpForm } from 'components/form/SignUpForm';
-import regPgImg from '../../media/register.svg';
+
+import registerImg from '../../media/register.svg';
 
 export const RegisterPage = () => {
   return (
@@ -22,14 +31,21 @@ export const RegisterPage = () => {
             SignIn
           </Button>
         </HStack>
-        <Heading as='h1' variant='secondary'>
+        <Heading as='h1' my={'3rem'} variant='secondary'>
           Let Us Begin
         </Heading>
-        <Box mb='8rem'>
+        <Box>
           <SignUpForm />
         </Box>
-        <Box position='absolute' bottom='0' right='0'>
-          <Image src={regPgImg} alr='Cat' />
+        <Spacer />
+        <Box position={'relative'} w={'100%'}>
+          <Image
+            position={'absolute'}
+            bottom={'10'}
+            src={registerImg}
+            alr='Cats'
+            opacity={'0.222'}
+          />
         </Box>
       </Flex>
     </Box>

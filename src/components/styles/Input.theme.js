@@ -16,21 +16,20 @@ const $borderRadius = cssVar('input-border-radius');
 
 const baseStyle = definePartsStyle({
   addon: {
-    height: '3.75rem',
-    fontSize: '1.25rem',
-    px: $padding.reference,
-    borderRadius: 'base',
+    height: '3.25rem',
+    fontSize: 'md',
   },
   field: {
     width: '100%',
-    height: '3.75rem',
-    fontSize: '2.25rem',
-    px: $padding.reference,
+    height: '3.25rem',
+    fontSize: '3xl',
+    px: '1rem',
     borderRadius: 'full',
     minWidth: 0,
     outline: 0,
     position: 'relative',
     appearance: 'none',
+    placeholder: 'var(--chakra-colors-gray-500)',
     transitionProperty: 'common',
     transitionDuration: 'normal',
     _disabled: {
@@ -132,27 +131,27 @@ const variantFilled = definePartsStyle(props => {
   return {
     field: {
       border: '2px solid',
-      borderColor: 'transparent',
-      bg: mode('orange.100', 'whiteAlpha.50')(props),
+      borderColor: 'red.400',
+      bg: mode('yellow.50')(props),
       _hover: {
-        bg: mode('orange.200', 'whiteAlpha.100')(props),
+        bg: mode('yellow.50')(props),
       },
       _readOnly: {
         boxShadow: 'none !important',
         userSelect: 'all',
       },
       _invalid: {
-        borderColor: 'orange.600',
+        borderColor: 'red.400',
       },
       _focusVisible: {
         bg: 'transparent',
-        borderColor: 'gray.300',
+        borderColor: 'blue.400',
       },
     },
     addon: {
       border: '2px solid',
       borderColor: 'transparent',
-      bg: mode('gray.100', 'whiteAlpha.50')(props),
+      bg: mode('yellow.100', 'yellow.50')(props),
     },
   };
 });
@@ -174,6 +173,48 @@ const variants = {
   outline: variantOutline,
   filled: variantFilled,
   unstyled: variantUnstyled,
+  primary: {
+    field: {
+      width: '100%',
+      height: '3.25rem',
+      fontSize: '3xl',
+      border: '1px solid',
+      borderColor: 'inherit',
+      bg: 'inherit',
+      placeholder: 'var(--chakra-colors-gray-500)',
+
+      _readOnly: {
+        boxShadow: 'none !important',
+        userSelect: 'all',
+      },
+    },
+    addon: {
+      height: '3.25rem',
+      fontSize: '2xl',
+      border: '1px solid',
+    },
+  },
+  secondary: {
+    field: {
+      width: '100%',
+      height: '3.25rem',
+      fontSize: 'xl',
+      border: '1px solid',
+      borderColor: 'inherit',
+      bg: 'inherit',
+      placeholder: 'var(--chakra-colors-gray-500)',
+
+      _readOnly: {
+        boxShadow: 'none !important',
+        userSelect: 'all',
+      },
+    },
+    addon: {
+      height: '2.75rem',
+      fontSize: 'lg',
+      border: '1px solid',
+    },
+  },
 };
 
 export const inputTheme = defineMultiStyleConfig({
@@ -181,7 +222,6 @@ export const inputTheme = defineMultiStyleConfig({
   sizes,
   variants,
   defaultProps: {
-    size: 'md',
     variant: 'outline',
   },
 });

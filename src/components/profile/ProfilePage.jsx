@@ -23,7 +23,7 @@ export const ProfilePage = () => {
       <Button
         as={Link}
         position={'absolute'}
-        top={'4rem'}
+        top={'3rem'}
         left={'4rem'}
         to={'/contacts/'}
         rounded={'full'}
@@ -33,16 +33,16 @@ export const ProfilePage = () => {
       <Box
         position='relative'
         w='100%'
-        h={'815px'}
+        h='725px'
         mt='3rem'
-        bg='yellow.100'
+        bg='yellow.50'
         borderRadius='3xl'
-        boxShadow={'lg'}
+        boxShadow={'md'}
         p={35}
       >
         <Flex
           align='center'
-          justify='space-between'
+          // justify='space-between'
           direction='column'
           alignContent='flex-end'
           h='100%'
@@ -51,22 +51,28 @@ export const ProfilePage = () => {
             position='absolute'
             right='5rem'
             top={-75}
-            w={44}
-            h={44}
-            variant='roundedSquare'
+            w={36}
+            h={36}
             bg={'blue.400'}
             boxShadow={'xl'}
             icon={<BiGame size='lg' />}
+            variant='roundedSquare'
           ></Avatar>
-          <Heading mt={98} textAlign={'left'}>
+          <Heading
+            mt={84}
+            size={'3xl'}
+            fontFamily={'Lilita One, serif'}
+            bgGradient='linear(to-r, blue.600, blue.400, blue.300, red.300, red.400, red.600)'
+            bgClip='text'
+          >
             Profile
           </Heading>
           <Divider borderColor={'red.400'} borderWidth={'0.15rem'} />
-          <VStack mt={'2rem'} align={'left'} spacing={6}>
+          <VStack mt={'1.5rem'} align={'left'} spacing={4}>
             <Box>
-              <Text fontSize={'3xl'}>Username</Text>
+              <Text>Username</Text>
               <Box
-                w={'lg'}
+                w={'sm'}
                 h={50}
                 border={'2px solid'}
                 borderRadius={'lg'}
@@ -74,18 +80,21 @@ export const ProfilePage = () => {
               ></Box>
             </Box>
             <Box>
-              <Text fontSize={'3xl'}>Email</Text>
+              <Text>Email</Text>
               <Box
-                w={'lg'}
+                w={'sm'}
                 h={50}
                 border={'2px solid'}
                 borderRadius={'lg'}
                 borderColor={'red.400'}
               ></Box>
             </Box>
-            <Button variant={'secondary'}>LogOut</Button>
+
+            <Button as={Link} to='/' variant={'secondary'}>
+              LogOut
+            </Button>
           </VStack>
-          <Button mt={40} alignSelf={'flex-end'}>
+          <Button mt={20} alignSelf={'flex-end'} as={Link} to='/not-found'>
             Delete Account
           </Button>
         </Flex>

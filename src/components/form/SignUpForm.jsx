@@ -28,12 +28,14 @@ export const SignUpForm = () => {
       validationSchema={Yup.object({
         name: Yup.string()
           .min(5, 'Name too short!')
-          .max(24, 'Name too long!')
+          .max(16, 'Name too long!')
           .required('Required'),
         email: Yup.string().email('Invalid email').required('Required'),
         password: Yup.string()
-          .min(5, 'Password too short!')
-          .max(24, 'Password too long!')
+          .min(6, 'Weak password!')
+          .min(9, 'Fair password')
+          .min(12, 'Good password!')
+          .max(15, 'Strong password!')
           .required('Required'),
       })}
       onSubmit={(values, actions) => {
@@ -48,14 +50,13 @@ export const SignUpForm = () => {
           spacing='1.75rem'
           onSubmit={formik.handleSubmit}
         >
-          <FormControl
-            isInvalid={formik.errors.username && formik.touched.username}
-          >
-            <FormLabel as='label' fontSize='3xl' mb='0'>
+          <FormControl isInvalid={formik.errors.name && formik.touched.name}>
+            <FormLabel fontSize='3xl' mb='0'>
               Name
             </FormLabel>
+
             <Tooltip
-              label={formik.errors.username}
+              label={formik.errors.name}
               isOpen={true}
               placement='top-end'
             >
@@ -64,16 +65,18 @@ export const SignUpForm = () => {
                   <Icon as={HiUserCircle} boxSize='2.25em' fill='blue.400' />
                 </InputLeftAddon>
                 <Input
-                  name='username'
+                  name='name'
+                  type='name'
                   {...formik.getFieldProps('username')}
-                  placeholder='John Dow'
+                  placeholder='Cat Dow'
+                  variant={'primary'}
                 />
               </InputGroup>
             </Tooltip>
           </FormControl>
 
           <FormControl isInvalid={formik.errors.email && formik.touched.email}>
-            <FormLabel as='label' fontSize='3xl' mb='0'>
+            <FormLabel fontSize='3xl' mb='0'>
               Email
             </FormLabel>
 
@@ -90,6 +93,7 @@ export const SignUpForm = () => {
                   name='email'
                   {...formik.getFieldProps('email')}
                   placeholder='john-dow@mail.com'
+                  variant={'primary'}
                 />
               </InputGroup>
             </Tooltip>
@@ -98,7 +102,7 @@ export const SignUpForm = () => {
           <FormControl
             isInvalid={formik.errors.password && formik.touched.password}
           >
-            <FormLabel as='label' fontSize='3xl' mb='0'>
+            <FormLabel fontSize='3xl' mb='0'>
               Password
             </FormLabel>
 
@@ -116,6 +120,7 @@ export const SignUpForm = () => {
                   type='password'
                   {...formik.getFieldProps('password')}
                   placeholder='Password'
+                  variant={'primary'}
                 />
               </InputGroup>
             </Tooltip>
@@ -123,10 +128,10 @@ export const SignUpForm = () => {
 
           <Button
             type='submit'
-            zIndex='333'
             as={Link}
             to='/profile'
             width='xs'
+            zIndex='333'
             mt='3rem'
           >
             SignUp
