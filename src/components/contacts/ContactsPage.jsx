@@ -16,7 +16,7 @@ import {
   ListItem,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { BiGame, BiFilterAlt } from 'react-icons/bi';
+import { BiFilterAlt } from 'react-icons/bi';
 import { ModalBox } from 'components/modal/Modal';
 
 export const ContactsPage = data => {
@@ -115,34 +115,3 @@ export const ContactsPage = data => {
     </Box>
   );
 };
-
-{
-  /* <Stack>
-  <Skeleton startColor='blue.400' endColor='red.400' height='20px' isLoaded>
-    <SkeletonText>{data.contact}</SkeletonText>
-  </Skeleton>
-
-  <Skeleton startColor='blue.400' endColor='red.400' height='20px' isLoaded>
-    <SkeletonText>{data.contact}</SkeletonText>
-  </Skeleton>
-
-  <Skeleton startColor='blue.400' endColor='red.400' height='20px' isLoaded>
-    <SkeletonText>{data.contact}</SkeletonText>
-  </Skeleton>
-
-  <Skeleton startColor='blue.400' endColor='red.400' height='20px' isLoaded>
-    <SkeletonText>{data.contact}</SkeletonText>
-  </Skeleton>
-
-  <Skeleton startColor='blue.400' endColor='red.400' height='20px' isLoaded>
-    <SkeletonText>{data.contact}</SkeletonText>
-  </Skeleton>
-  <Skeleton startColor='blue.400' endColor='red.400' height='20px' isLoaded>
-    <SkeletonText>{data.contact}</SkeletonText>
-  </Skeleton>
-
-  <Skeleton startColor='blue.400' endColor='red.400' height='20px' isLoaded>
-    <SkeletonText>{data.contact}</SkeletonText>
-  </Skeleton>
-</Stack>; */
-}
