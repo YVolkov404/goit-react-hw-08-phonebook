@@ -3,7 +3,6 @@ import ReactShadowScrollComponent from 'react-shadow-scroll';
 import {
   Avatar,
   Box,
-  Divider,
   Flex,
   FormControl,
   HStack,

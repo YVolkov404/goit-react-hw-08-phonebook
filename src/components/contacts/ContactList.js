@@ -1,4 +1,4 @@
-import { Skeleton, Text, color } from '@chakra-ui/react';
+import { Skeleton, Text } from '@chakra-ui/react';
 
 export const StackItems = ({ data }) => {
   return data.map(({ name, number, id }) => {

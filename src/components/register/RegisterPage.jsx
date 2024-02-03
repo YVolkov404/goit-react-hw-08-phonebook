@@ -38,7 +38,7 @@ export const RegisterPage = () => {
           <SignUpForm />
         </Box>
         <Spacer />
-        <Box position={'relative'} w={'100%'}>
+        <Box position={'relative'} w={'100%'} h={'100%'}>
           <Image
             position={'absolute'}
             bottom={'10'}
