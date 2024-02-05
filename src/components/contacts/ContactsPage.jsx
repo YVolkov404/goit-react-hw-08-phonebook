@@ -63,7 +63,7 @@ export const ContactsPage = () => {
         <FormControl mt={'6rem'}>
           <InputGroup>
             <InputLeftElement>
-              <BiFilterAlt currentColor='red.400' />
+              <BiFilterAlt />
             </InputLeftElement>
 
             <Input variant='filled' placeholder='You can filter contacts' />

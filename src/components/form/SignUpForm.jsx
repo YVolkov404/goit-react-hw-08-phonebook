@@ -16,8 +16,17 @@ import {
 } from '@chakra-ui/react';
 
 import { HiUserCircle, HiMail, HiKey } from 'react-icons/hi';
+import { useState } from 'react';
 
-export const SignUpForm = () => {
+//------------------------------------------------------------
+
+export const SingUpForm = () => {
+  const [value, setValues] = useState();
+
+  const submitFormHandler = e => setValues(e.target.value);
+
+  console.log(submitFormHandler);
+
   return (
     <Formik
       initialValues={{
@@ -39,7 +48,7 @@ export const SignUpForm = () => {
           .required('Required'),
       })}
       onSubmit={(values, actions) => {
-        alert(JSON.stringify(values, null, 2));
+        submitFormHandler(values);
         actions.resetForm();
       }}
     >
@@ -51,34 +60,28 @@ export const SignUpForm = () => {
           onSubmit={formik.handleSubmit}
         >
           <FormControl isInvalid={formik.errors.name && formik.touched.name}>
-            <FormLabel fontSize='3xl' mb='0'>
-              Name
-            </FormLabel>
+            <FormLabel>Name</FormLabel>
 
-            <Tooltip
-              label={formik.errors.name}
-              isOpen={true}
-              placement='top-end'
-            >
+            <Tooltip label={formik.errors.name} isOpen={true} placement='top-e'>
               <InputGroup>
-                <InputLeftAddon bgColor='green.50'>
-                  <Icon as={HiUserCircle} boxSize='2.25em' fill='blue.400' />
+                <InputLeftAddon>
+                  <Icon as={HiUserCircle} variant='primary' />
                 </InputLeftAddon>
                 <Input
                   name='name'
                   type='name'
-                  {...formik.getFieldProps('username')}
+                  {...formik.getFieldProps('name')}
                   placeholder='Cat Dow'
-                  variant={'primary'}
+                  value={formik.name.value}
+                  onChange={formik.handleOnChange}
                 />
+                :
               </InputGroup>
             </Tooltip>
           </FormControl>
 
           <FormControl isInvalid={formik.errors.email && formik.touched.email}>
-            <FormLabel fontSize='3xl' mb='0'>
-              Email
-            </FormLabel>
+            <FormLabel>Email</FormLabel>
 
             <Tooltip
               label={formik.errors.email}
@@ -86,14 +89,16 @@ export const SignUpForm = () => {
               placement='top-end'
             >
               <InputGroup>
-                <InputLeftAddon bgColor='green.50'>
-                  <Icon as={HiMail} boxSize='2.25em' fill='blue.400' />
+                <InputLeftAddon>
+                  <Icon as={HiMail} variant='primary' />
                 </InputLeftAddon>
                 <Input
                   name='email'
+                  type='email'
                   {...formik.getFieldProps('email')}
-                  placeholder='john-dow@mail.com'
-                  variant={'primary'}
+                  placeholder='nickname@dow@mail.com'
+                  value={formik.email.value}
+                  onChange={formik.handleOnChange}
                 />
               </InputGroup>
             </Tooltip>
@@ -102,9 +107,7 @@ export const SignUpForm = () => {
           <FormControl
             isInvalid={formik.errors.password && formik.touched.password}
           >
-            <FormLabel fontSize='3xl' mb='0'>
-              Password
-            </FormLabel>
+            <FormLabel>Password</FormLabel>
 
             <Tooltip
               label={formik.errors.password}
@@ -112,27 +115,27 @@ export const SignUpForm = () => {
               placement='top-end'
             >
               <InputGroup>
-                <InputLeftAddon bgColor='green.50'>
-                  <Icon as={HiKey} boxSize='2.25em' fill='blue.400' />
+                <InputLeftAddon>
+                  <Icon as={HiKey} variant='primary' />
                 </InputLeftAddon>
                 <Input
                   name='password'
                   type='password'
                   {...formik.getFieldProps('password')}
                   placeholder='Password'
-                  variant={'primary'}
+                  value={formik.password.value}
+                  onChange={formik.handleOnChange}
                 />
               </InputGroup>
             </Tooltip>
           </FormControl>
-
           <Button
             type='submit'
             as={Link}
             to='/profile'
             width='xs'
+            alignSelf={'flex-end'}
             zIndex='333'
-            mt='3rem'
           >
             SignUp
           </Button>

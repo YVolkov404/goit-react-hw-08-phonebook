@@ -16,20 +16,21 @@ const $borderRadius = cssVar('input-border-radius');
 
 const baseStyle = definePartsStyle({
   addon: {
-    height: '3.25rem',
-    fontSize: 'md',
+    height: '3xl',
+    fontSize: 'f3xl',
+    px: ' 3xl',
+    borderRadius: '3xl',
   },
   field: {
     width: '100%',
-    height: '3.25rem',
-    fontSize: '3xl',
-    px: '1rem',
-    borderRadius: 'full',
+    height: '3xl',
+    fontSize: ' 3xl',
+    px: ' 3xl',
+    borderRadius: $borderRadius.xl,
     minWidth: 0,
     outline: 0,
     position: 'relative',
     appearance: 'none',
-    placeholder: 'var(--chakra-colors-gray-500)',
     transitionProperty: 'common',
     transitionDuration: 'normal',
     _disabled: {
@@ -85,17 +86,9 @@ const sizes = {
   }),
 };
 
-function getDefaults(props) {
-  const { focusBorderColor: fc, errorBorderColor: ec } = props;
-  return {
-    focusBorderColor: fc || mode('blue.500', 'blue.300')(props),
-    errorBorderColor: ec || mode('red.500', 'red.300')(props),
-  };
-}
-
 const variantOutline = definePartsStyle(props => {
   const { theme } = props;
-  const { focusBorderColor: fc, errorBorderColor: ec } = getDefaults(props);
+  const { focusBorderColor: fc, errorBorderColor: ec } = fc.getDefaults('');
 
   return {
     field: {
@@ -128,30 +121,67 @@ const variantOutline = definePartsStyle(props => {
 });
 
 const variantFilled = definePartsStyle(props => {
+  const { theme } = props;
+  const { focusBorderColor: fc, errorBorderColor: ec } = fc.getDefaults('');
+
   return {
     field: {
       border: '2px solid',
-      borderColor: 'red.400',
-      bg: mode('yellow.50')(props),
+      borderColor: 'transparent',
+      bg: mode('gray.100', 'whiteAlpha.50')(props),
       _hover: {
-        bg: mode('yellow.50')(props),
+        bg: mode('gray.200', 'whiteAlpha.100')(props),
       },
       _readOnly: {
         boxShadow: 'none !important',
         userSelect: 'all',
       },
       _invalid: {
-        borderColor: 'red.400',
+        borderColor: getColor(theme, ec),
       },
       _focusVisible: {
         bg: 'transparent',
-        borderColor: 'blue.400',
+        borderColor: getColor(theme, fc),
       },
     },
     addon: {
       border: '2px solid',
       borderColor: 'transparent',
-      bg: mode('yellow.100', 'yellow.50')(props),
+      bg: mode('gray.100', 'whiteAlpha.50')(props),
+    },
+  };
+});
+
+const variantFlushed = definePartsStyle(props => {
+  const { theme } = props;
+  const { focusBorderColor: fc, errorBorderColor: ec } = fc.getDefaults(props);
+
+  return {
+    field: {
+      borderBottom: '1px solid',
+      borderColor: 'inherit',
+      borderRadius: '0',
+      px: '0',
+      bg: 'transparent',
+      _readOnly: {
+        boxShadow: 'none !important',
+        userSelect: 'all',
+      },
+      _invalid: {
+        borderColor: getColor(theme, ec),
+        boxShadow: `0px 1px 0px 0px ${getColor(theme, ec)}`,
+      },
+      _focusVisible: {
+        borderColor: getColor(theme, fc),
+        boxShadow: `0px 1px 0px 0px ${getColor(theme, fc)}`,
+      },
+    },
+    addon: {
+      borderBottom: '2px solid',
+      borderColor: 'inherit',
+      borderRadius: '0',
+      px: '0',
+      bg: 'transparent',
     },
   };
 });
@@ -169,59 +199,48 @@ const variantUnstyled = definePartsStyle({
   },
 });
 
+const myTheme = definePartsStyle({
+  field: {
+    width: '100%',
+    border: '1px solid',
+    borderColor: 'gray.200',
+    background: 'gray.50',
+    borderRadius: 'full',
+    height: '2rem',
+    fontSize: '3xl',
+  },
+  addon: {
+    border: '1px solid',
+    borderColor: 'gray.200',
+    background: 'green.50',
+    borderRadius: 'md',
+    color: 'blue.400',
+    height: '2rem',
+    fontSize: '3xl',
+  },
+});
+
 const variants = {
   outline: variantOutline,
   filled: variantFilled,
+  flushed: variantFlushed,
   unstyled: variantUnstyled,
-  primary: {
-    field: {
-      width: '100%',
-      height: '3.25rem',
-      fontSize: '3xl',
-      border: '1px solid',
-      borderColor: 'inherit',
-      bg: 'inherit',
-      placeholder: 'var(--chakra-colors-gray-500)',
-
-      _readOnly: {
-        boxShadow: 'none !important',
-        userSelect: 'all',
-      },
-    },
-    addon: {
-      height: '3.25rem',
-      fontSize: '2xl',
-      border: '1px solid',
-    },
-  },
-  secondary: {
-    field: {
-      width: '100%',
-      height: '3.25rem',
-      fontSize: 'xl',
-      border: '1px solid',
-      borderColor: 'inherit',
-      bg: 'inherit',
-      placeholder: 'var(--chakra-colors-gray-500)',
-
-      _readOnly: {
-        boxShadow: 'none !important',
-        userSelect: 'all',
-      },
-    },
-    addon: {
-      height: '2.75rem',
-      fontSize: 'lg',
-      border: '1px solid',
-    },
-  },
 };
 
+// export const inputTheme = defineMultiStyleConfig({
+//   baseStyle,
+//   sizes,
+//   variants,
+//   defaultProps: {
+//     size: 'xl',
+//     variant: 'outline',
+//   },
+// });
+
 export const inputTheme = defineMultiStyleConfig({
-  baseStyle,
-  sizes,
-  variants,
-  defaultProps: {
-    variant: 'outline',
+  defaultTheme: {
+    baseTheme: myTheme,
+    variants: variantOutline,
+    size: 'lg',
   },
 });

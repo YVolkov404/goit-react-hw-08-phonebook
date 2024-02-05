@@ -9,7 +9,7 @@ import {
   Spacer,
 } from '@chakra-ui/react';
 
-import { SignUpForm } from 'components/form/SignUpForm';
+import { SignInForm } from 'components/form/SignInForm';
 
 import registerImg from '../../media/register.svg';
 
@@ -34,9 +34,9 @@ export const RegisterPage = () => {
         <Heading as='h1' my={'3rem'} variant='secondary'>
           Let Us Begin
         </Heading>
-        <Box>
-          <SignUpForm />
-        </Box>
+
+        <SignInForm />
+
         <Spacer />
         <Box position={'relative'} w={'100%'} h={'100%'}>
           <Image

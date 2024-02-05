@@ -14,18 +14,40 @@ import {
 } from '@chakra-ui/react';
 
 import { HiUserCircle, HiPhone } from 'react-icons/hi';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'rdx/operations';
+import { selectContacts } from 'rdx/selectors';
+
+//--------------------------------------------------------
 
 export const ModalForm = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
+
+  const submitHandler = async values => {
+    try {
+      const { name, number } = values;
+      console.log(values);
+      const hasContactName = contacts.some(
+        contact => contact.name.toLowerCase() === name.toLowerCase()
+      );
+
+      hasContactName
+        ? alert(`${name} already in phonebook!`)
+        : dispatch(addContact({ name, number }));
+    } catch (error) {}
+  };
+
   return (
     <Formik
       initialValues={{
-        username: '',
+        name: '',
         number: '',
       }}
       validationSchema={Yup.object({
-        username: Yup.string()
+        name: Yup.string()
           .min(5, 'Name too short!')
-          .max(24, 'Name too long!')
+          .max(16, 'Name too long!')
           .required('Required'),
         number: Yup.string()
           .min(9, 'Number too short!')
@@ -33,7 +55,7 @@ export const ModalForm = () => {
           .required('Required'),
       })}
       onSubmit={(values, actions) => {
-        alert(JSON.stringify(values, null, 2));
+        submitHandler(values);
         actions.resetForm();
       }}
     >
@@ -44,28 +66,27 @@ export const ModalForm = () => {
           spacing='1.5rem'
           onSubmit={formik.handleSubmit}
         >
-          <FormControl
-            isInvalid={formik.errors.username && formik.touched.username}
-          >
-            <FormLabel as='label' fontSize='2xl' mb='0' color='blue.400'>
-              Name
-            </FormLabel>
+          <FormControl isInvalid={formik.errors.name && formik.touched.name}>
+            <FormLabel as='label'>Name</FormLabel>
 
             <Tooltip
-              label={formik.errors.username}
+              label={formik.errors.name}
               isOpen={true}
               placement='top-end'
               variant='secondary'
             >
               <InputGroup>
-                <InputLeftAddon bgColor='green.50'>
+                <InputLeftAddon variant='secondary'>
                   <Icon as={HiUserCircle} boxSize='2.25em' fill='red.400' />
                 </InputLeftAddon>
                 <Input
-                  name='username'
-                  {...formik.getFieldProps('username')}
-                  placeholder='John Dow'
-                  variant={'secondary'}
+                  name='name'
+                  type='text'
+                  {...formik.getFieldProps('name')}
+                  placeholder='Sirius Don'
+                  variant='secondary'
+                  value={formik.name}
+                  onChange={formik.handleValueChange}
                 />
               </InputGroup>
             </Tooltip>
@@ -74,9 +95,7 @@ export const ModalForm = () => {
           <FormControl
             isInvalid={formik.errors.number && formik.touched.number}
           >
-            <FormLabel as='label' fontSize='2xl' mb='0' color='blue.400'>
-              Number
-            </FormLabel>
+            <FormLabel as='label'>Number</FormLabel>
 
             <Tooltip
               label={formik.errors.number}
@@ -85,15 +104,17 @@ export const ModalForm = () => {
               variant='secondary'
             >
               <InputGroup>
-                <InputLeftAddon bgColor='green.50'>
-                  <Icon as={HiPhone} boxSize='2.25em' fill='red.400' />
+                <InputLeftAddon bgColor='green.50' size='xl'>
+                  <Icon as={HiPhone} variant='secondary' />
                 </InputLeftAddon>
                 <Input
                   name='number'
                   type='number'
                   {...formik.getFieldProps('number')}
-                  placeholder='+38()'
-                  variant={'secondary'}
+                  placeholder='+38(066) 666-66-66'
+                  variant='secondary'
+                  value={formik.number}
+                  onChange={formik.handleValueChange}
                 />
               </InputGroup>
             </Tooltip>

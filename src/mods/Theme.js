@@ -7,6 +7,8 @@ import { inputTheme } from 'components/styles/Input.theme';
 import { skeletonTheme } from 'components/styles/Skeleton.theme';
 import { buttonTheme } from 'components/styles/Button.theme';
 import { modalTheme } from 'components/modal/Modal.styled';
+import { labelTheme } from 'components/styles/Form.theme';
+import { iconTheme } from 'components/styles/Icon.theme';
 
 // import { ColorModeSwitcher } from './ColorModeSwitcher';
 
@@ -28,9 +30,12 @@ const theme = extendTheme({
         boxShadow: 'lg',
         p: '5rem 2rem',
       },
-      'p, label': {
+      p: {
         fontSize: '3xl',
-        letterSpacing: '0.125em',
+      },
+      label: {
+        fontSize: 'lg',
+        mb: '0',
       },
     },
     colors: {
@@ -51,6 +56,8 @@ const theme = extendTheme({
     Tooltip: tooltipTheme,
     Input: inputTheme,
     Modal: modalTheme,
+    FormLabel: labelTheme,
+    Icon: iconTheme,
   },
 });
 

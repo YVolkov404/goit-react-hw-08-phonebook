@@ -16,8 +16,13 @@ import {
 } from '@chakra-ui/react';
 
 import { HiMail, HiKey } from 'react-icons/hi';
+import { useState } from 'react';
 
 export const SignInForm = () => {
+  const [value, setData] = useState('');
+
+  const submitHandler = e => setData(e.target.value);
+
   return (
     <Formik
       initialValues={{
@@ -32,7 +37,7 @@ export const SignInForm = () => {
           .required('Required'),
       })}
       onSubmit={(values, actions) => {
-        alert(JSON.stringify(values, null, 2));
+        submitHandler(values);
         actions.resetForm();
       }}
     >
@@ -44,9 +49,7 @@ export const SignInForm = () => {
           onSubmit={formik.handleSubmit}
         >
           <FormControl isInvalid={formik.errors.email && formik.touched.email}>
-            <FormLabel as='label' fontSize='3xl' mb='0'>
-              Email
-            </FormLabel>
+            <FormLabel as='label'>Email</FormLabel>
 
             <Tooltip
               label={formik.errors.email}
@@ -59,9 +62,12 @@ export const SignInForm = () => {
                 </InputLeftAddon>
                 <Input
                   name='email'
+                  type='email'
                   {...formik.getFieldProps('email')}
                   placeholder='john-dow@mail.com'
-                  variant={'primary'}
+                  size='md'
+                  value={formik.email.value}
+                  onChange={formik.OnSubmitHandler}
                 />
               </InputGroup>
             </Tooltip>
@@ -70,9 +76,7 @@ export const SignInForm = () => {
           <FormControl
             isInvalid={formik.errors.password && formik.touched.password}
           >
-            <FormLabel as='label' fontSize='3xl' mb='0'>
-              Password
-            </FormLabel>
+            <FormLabel as='label'>Password</FormLabel>
 
             <Tooltip
               label={formik.errors.password}
@@ -81,14 +85,15 @@ export const SignInForm = () => {
             >
               <InputGroup>
                 <InputLeftAddon bgColor='green.50'>
-                  <Icon as={HiKey} boxSize='2.25em' fill='red.400' />
+                  <Icon as={HiKey} variant='primary' />
                 </InputLeftAddon>
                 <Input
                   name='password'
                   type='password'
                   {...formik.getFieldProps('password')}
                   placeholder='Password'
-                  variant={'primary'}
+                  value={formik.password.value}
+                  onChange={formik.omSubmitHandler}
                 />
               </InputGroup>
             </Tooltip>
