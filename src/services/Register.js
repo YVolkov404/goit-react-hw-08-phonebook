@@ -3,7 +3,7 @@ import {
   faCheck,
   faTimes,
   faInfoCircle,
-} from '@fontawesome/free-solid-svg-icons';
+} from '@fortawesome/free-solid-svg-icons';
 
 const Register = () => {
   const USER_REGEX = '/^[A-Za-z][A-Za-z0-9_]{7,29}$';

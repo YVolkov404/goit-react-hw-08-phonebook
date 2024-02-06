@@ -19,9 +19,12 @@ import { HiMail, HiKey } from 'react-icons/hi';
 import { useState } from 'react';
 
 export const SignInForm = () => {
-  const [value, setData] = useState('');
+  const [data, setData] = useState('');
 
   const submitHandler = e => setData(e.target.value);
+  const result = submitHandler(data);
+
+  console.log(result);
 
   return (
     <Formik

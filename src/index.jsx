@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Spinner } from '@chakra-ui/react';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor, store } from 'rdx/store';
 
@@ -17,16 +17,23 @@ import theme from './mods/Theme';
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <Root />,
+//   },
+// ]);
+
 root.render(
   <StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename='/goit-react-hw-08-phonebook'>
+      <PersistGate loading={<Spinner />} persistor={persistor}>
         <ChakraProvider resetCSS theme={theme}>
-          <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter basename="/goit-react-hw-08-phonebook">
             <App />
-          </PersistGate>
+          </BrowserRouter>
         </ChakraProvider>
-      </BrowserRouter>
+      </PersistGate>
     </Provider>
   </StrictMode>
 );

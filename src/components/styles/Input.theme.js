@@ -4,7 +4,7 @@ import {
   cssVar,
   defineStyle,
 } from '@chakra-ui/styled-system';
-import { getColor, mode } from '@chakra-ui/theme-tools';
+import { mode } from '@chakra-ui/theme-tools';
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys);
@@ -87,9 +87,6 @@ const sizes = {
 };
 
 const variantOutline = definePartsStyle(props => {
-  const { theme } = props;
-  const { focusBorderColor: fc, errorBorderColor: ec } = fc.getDefaults('');
-
   return {
     field: {
       border: '1px solid',
@@ -102,15 +99,6 @@ const variantOutline = definePartsStyle(props => {
         boxShadow: 'none !important',
         userSelect: 'all',
       },
-      _invalid: {
-        borderColor: getColor(theme, ec),
-        boxShadow: `0 0 0 1px ${getColor(theme, ec)}`,
-      },
-      _focusVisible: {
-        zIndex: 1,
-        borderColor: getColor(theme, fc),
-        boxShadow: `0 0 0 1px ${getColor(theme, fc)}`,
-      },
     },
     addon: {
       border: '1px solid',
@@ -121,9 +109,6 @@ const variantOutline = definePartsStyle(props => {
 });
 
 const variantFilled = definePartsStyle(props => {
-  const { theme } = props;
-  const { focusBorderColor: fc, errorBorderColor: ec } = fc.getDefaults('');
-
   return {
     field: {
       border: '2px solid',
@@ -136,13 +121,6 @@ const variantFilled = definePartsStyle(props => {
         boxShadow: 'none !important',
         userSelect: 'all',
       },
-      _invalid: {
-        borderColor: getColor(theme, ec),
-      },
-      _focusVisible: {
-        bg: 'transparent',
-        borderColor: getColor(theme, fc),
-      },
     },
     addon: {
       border: '2px solid',
@@ -153,9 +131,6 @@ const variantFilled = definePartsStyle(props => {
 });
 
 const variantFlushed = definePartsStyle(props => {
-  const { theme } = props;
-  const { focusBorderColor: fc, errorBorderColor: ec } = fc.getDefaults(props);
-
   return {
     field: {
       borderBottom: '1px solid',
@@ -166,14 +141,6 @@ const variantFlushed = definePartsStyle(props => {
       _readOnly: {
         boxShadow: 'none !important',
         userSelect: 'all',
-      },
-      _invalid: {
-        borderColor: getColor(theme, ec),
-        boxShadow: `0px 1px 0px 0px ${getColor(theme, ec)}`,
-      },
-      _focusVisible: {
-        borderColor: getColor(theme, fc),
-        boxShadow: `0px 1px 0px 0px ${getColor(theme, fc)}`,
       },
     },
     addon: {
@@ -238,6 +205,9 @@ const variants = {
 // });
 
 export const inputTheme = defineMultiStyleConfig({
+  baseStyle,
+  sizes,
+  variants,
   defaultTheme: {
     baseTheme: myTheme,
     variants: variantOutline,

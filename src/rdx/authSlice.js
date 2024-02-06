@@ -16,28 +16,28 @@ const authSlice = createSlice({
       .addCase(signup.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.isLoggedIn = true;
+        state.isUserLoggedIn = true;
       })
-      .addCase(sigmin.fulfilled, (state, action) => {
+      .addCase(signin.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.isLoggedIn = true;
+        state.isUserLoggedIn = true;
       })
       .addCase(signout.fulfilled, state => {
         state.user = { name: null, email: null };
         state.token = null;
-        state.isLoggedIn = false;
+        state.isUserLoggedIn = false;
       })
-      .addCase(refreshUser.pending, state => {
-        state.isRefreshing = true;
+      .addCase(refreshing.pending, state => {
+        state.isAccessRefreshing = true;
       })
-      .addCase(refreshUser.fulfilled, (state, action) => {
+      .addCase(refreshing.fulfilled, (state, action) => {
         state.user = action.payload;
-        state.isLoggedIn = true;
-        state.isRefreshing = false;
+        state.isUserLoggedIn = true;
+        state.isAccessRefreshing = false;
       })
-      .addCase(refreshUser.rejected, state => {
-        state.isRefreshing = false;
+      .addCase(refreshing.rejected, state => {
+        state.isAccessRefreshing = false;
       });
   },
 });

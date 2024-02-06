@@ -1,14 +1,16 @@
 import { extendTheme } from '@chakra-ui/react';
-import { containerTheme } from 'components/layout/Layout.styled';
-import { headingTheme } from 'components/styles/Heading.theme';
-import { tooltipTheme } from 'components/styles/Tooltip.theme';
 //---------------------------------------------------------------
 import { inputTheme } from 'components/styles/Input.theme';
 import { skeletonTheme } from 'components/styles/Skeleton.theme';
+import { headingTheme } from 'components/styles/Heading.theme';
+import { tooltipTheme } from 'components/styles/Tooltip.theme';
 import { buttonTheme } from 'components/styles/Button.theme';
 import { modalTheme } from 'components/modal/Modal.styled';
 import { labelTheme } from 'components/styles/Form.theme';
 import { iconTheme } from 'components/styles/Icon.theme';
+import { alertTheme } from 'components/styles/Alert.theme';
+import { containerTheme } from 'components/styles/Layout.theme';
+import { spinnerTheme } from 'components/styles/Spinner.theme';
 
 // import { ColorModeSwitcher } from './ColorModeSwitcher';
 
@@ -58,6 +60,8 @@ const theme = extendTheme({
     Modal: modalTheme,
     FormLabel: labelTheme,
     Icon: iconTheme,
+    Spinner: spinnerTheme,
+    Alert: alertTheme,
   },
 });
 
