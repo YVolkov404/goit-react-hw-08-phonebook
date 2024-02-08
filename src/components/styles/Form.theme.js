@@ -1,8 +1,7 @@
 export const labelTheme = {
   // style object for base or default style
   baseStyle: {
-    fontSize: '2xl',
-    fontWeight: 'semibold',
+    fontSize: '3xl',
     mb: '0',
   },
   // styles for different visual variants ("outline", "solid")

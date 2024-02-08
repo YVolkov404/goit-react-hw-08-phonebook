@@ -1,6 +1,6 @@
 export const iconTheme = {
   baseStyle: {
-    boxSize: '2.25',
+    boxSize: '2.25rem',
   },
   variants: {
     primary: {
@@ -11,7 +11,6 @@ export const iconTheme = {
     },
   },
   defaultProps: {
-    boxSize: '2.25',
     variant: 'primary',
   },
 };

@@ -1,5 +1,7 @@
+export const selectUser = state => state.auth.user;
+export const selectIsUserLoggedIn = state => state.auth.isUserLoggedIn;
+export const selectIsAccessRefreshing = state => state.auth.isAccessRefreshing;
+
+//-----------------------------------------------------------------------------
 export const selectContacts = state => state.contacts;
 export const selectFilterContacts = state => state.filter;
-export const selectUser = state => state.user;
-export const selectIsUserLoggedIn = state => state.selectIsLoggedIn;
-export const selectIsAccessRefreshing = state => state.isAccessRefreshing;

@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const authSlice = createSlice({
-  name: 'Auth',
+  name: 'auth',
   initialState,
   extraReducers: builder => {
     builder
@@ -24,7 +24,7 @@ const authSlice = createSlice({
         state.isUserLoggedIn = true;
       })
       .addCase(signout.fulfilled, state => {
-        state.user = { name: null, email: null };
+        state.user = { name: '', email: '' };
         state.token = null;
         state.isUserLoggedIn = false;
       })

@@ -1,24 +1,21 @@
-import React, { useEffect, lazy } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { PrivateRoute } from 'PrivateRoute';
 import { RestrictedRoute } from 'RestrictedRoute';
 import { useDispatch } from 'react-redux';
-
-import { Alert, AlertIcon, Spinner } from '@chakra-ui/react';
-
 //-----------------------------------------------
-// import { Root } from '../Layout';
 import { useAuth } from '../hooks/Hooks';
 import { refreshing } from 'rdx/authorization';
 import { Layout } from '../Layout';
+// import { Alert, AlertIcon } from '@chakra-ui/react';
 
-const Home = lazy(() => import('routes/Home'));
-const Register = lazy(() => import('routes/Register'));
-const Profile = lazy(() => import('routes/Profile'));
-const Login = lazy(() => import('routes/Login'));
-const Contacts = lazy(() => import('routes/Contacts'));
-const Info = lazy(() => import('routes/Info'));
-const NotFound = lazy(() => import('routes/NotFound'));
+const HomePage = lazy(() => import('routes/Home'));
+const RegisterPage = lazy(() => import('routes/Register'));
+const ProfilePage = lazy(() => import('routes/Profile'));
+const LoginPage = lazy(() => import('routes/Login'));
+const ContactsPage = lazy(() => import('routes/Contacts'));
+const InfoPage = lazy(() => import('routes/Info'));
+const NotFoundPage = lazy(() => import('routes/NotFound'));
 
 //------------------------------------------------
 
@@ -31,36 +28,41 @@ function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Alert status="warning">Pending refreshing user</Alert>
+    <Suspense fallback />
   ) : (
-    <Routes path="/" element={<Layout />}>
-      <Route index element={<Home />} />
-
-      <Route
-        path="/register"
-        element={
-          <RestrictedRoute redirectTo="/profile" element={<Register />} />
-        }
-      />
-
-      <Route
-        path="/login"
-        element={<PrivateRoute redirectTo="/contacts" element={<Login />} />}
-      />
-
-      <Route
-        path="/profile"
-        element={<PrivateRoute redirectTo="/register" element={<Profile />} />}
-      />
-
-      <Route
-        path="/contacts"
-        element={<PrivateRoute redirectTo="/" element={<Contacts />} />}
-      >
-        <Route path="contactId" element={<Info />} />
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute
+              redirectTo="/profile"
+              component={<RegisterPage />}
+            />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute redirectTo="/register" component={<ProfilePage />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={<PrivateRoute redirectTo="/" component={<ContactsPage />} />}
+        >
+          <Route path="contactId" component={<InfoPage />} />
+          <Route path="profile" component={<ProfilePage />} />
+        </Route>
+        <Route path="*" component={<NotFoundPage />} />
       </Route>
-
-      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

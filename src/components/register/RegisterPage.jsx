@@ -1,53 +1,50 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
 import {
   Box,
-  Flex,
   Button,
+  Container,
   Heading,
   HStack,
   Image,
   Spacer,
+  VStack,
 } from '@chakra-ui/react';
-
-import { SignInForm } from 'components/form/SignInForm';
-
 import registerImg from '../../media/register.svg';
+import { SingUpForm } from 'components/form/SignUpForm';
 
 export const RegisterPage = () => {
   return (
-    <Box as='section' bg='yellow.50' borderColor='red.400'>
-      <Flex
-        position='relative'
-        align='center'
-        justify='space-between'
-        direction='column'
-        height='100%'
-      >
-        <HStack w='100%' justify='space-between'>
-          <Button as={Link} to='/' variant='secondary'>
-            Home
-          </Button>
-          <Button as={Link} to='/login' variant='secondary'>
-            SignIn
-          </Button>
+    <Container as="section" variant={'primary'}>
+      <VStack spacing={5}>
+        <HStack w="100%" justify="space-between">
+          <HStack w="100%" justify="space-between">
+            <Button as={NavLink} to="/" variant="secondary">
+              Home
+            </Button>
+            <Button as={NavLink} to="/login" variant="secondary">
+              SignIn
+            </Button>
+          </HStack>
         </HStack>
-        <Heading as='h1' my={'3rem'} variant='secondary'>
+
+        <Heading as="h1" my="3rem" variant="secondary">
           Let Us Begin
         </Heading>
 
-        <SignInForm />
+        <SingUpForm />
 
         <Spacer />
-        <Box position={'relative'} w={'100%'} h={'100%'}>
+        <Box position="relative" w="100%" h="100%">
           <Image
-            position={'absolute'}
-            bottom={'10'}
+            position="absolute"
+            bottom="10px"
             src={registerImg}
-            alr='Cats'
-            opacity={'0.222'}
+            alr="Cats"
+            opacity="0.222"
           />
         </Box>
-      </Flex>
-    </Box>
+      </VStack>
+    </Container>
   );
 };

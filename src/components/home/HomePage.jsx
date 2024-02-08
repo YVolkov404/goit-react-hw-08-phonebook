@@ -6,42 +6,41 @@ import {
   VStack,
   Heading,
   Box,
-  Flex,
-  Stack,
+  Container,
 } from '@chakra-ui/react';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import homeImg from '../../media/home.svg';
 
 export const HomePage = () => {
   return (
-    <Box as='section' bgColor='green.50' borderColor='blue.400'>
-      <Flex align='center' justify='space-between' direction='column' h='100%'>
+    <Container as="section" variant="primary">
+      <VStack spacing={10}>
         <Box>
-          <Heading as='h1'>Phonebook</Heading>
+          <Heading as="h1">Phonebook</Heading>
         </Box>
-        <Stack spacing={8}>
-          <HStack justify='center' gap='2rem'>
-            <Button as={Link} to='/register'>
+        <VStack spacing={10}>
+          <HStack justify="center" gap="2rem">
+            <Button type="button" as={NavLink} to="register">
               SignUp
             </Button>
             <Text>for free</Text>
           </HStack>
-          <Image src={homeImg} alr='Cats' />
-          <VStack spacing={8}>
+          <Image src={homeImg} alr="Cats" />
+          <VStack spacing={2}>
             <Text>already have an account?</Text>
-            <Button as={Link} to='/login'>
+            <Button type="button" as={NavLink} to="login">
               SignIn
             </Button>
           </VStack>
-        </Stack>
+        </VStack>
         <Box>
-          <Text fontSize='xl' fontWeight='normal'>
+          <Text fontSize="xl" fontWeight="normal">
             fantom_ass 2014
           </Text>
         </Box>
-      </Flex>
-    </Box>
+      </VStack>
+    </Container>
   );
 };

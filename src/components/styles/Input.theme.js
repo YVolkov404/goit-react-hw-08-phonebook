@@ -16,23 +16,29 @@ const $borderRadius = cssVar('input-border-radius');
 
 const baseStyle = definePartsStyle({
   addon: {
-    height: '3xl',
-    fontSize: 'f3xl',
-    px: ' 3xl',
-    borderRadius: '3xl',
+    w: '100%',
+    h: '3rem',
+    px: '1rem',
+
+    fontSize: '2rem',
+    borderRadius: 'base',
   },
   field: {
-    width: '100%',
-    height: '3xl',
-    fontSize: ' 3xl',
-    px: ' 3xl',
-    borderRadius: $borderRadius.xl,
+    w: '100%',
+    height: '3rem',
+    fontSize: '2xl',
+    px: '1.25rem',
+    borderRadius: 'full',
     minWidth: 0,
     outline: 0,
     position: 'relative',
     appearance: 'none',
     transitionProperty: 'common',
     transitionDuration: 'normal',
+    _placeholder: {
+      color: 'red.400',
+      opacity: 0.333,
+    },
     _disabled: {
       opacity: 0.4,
       cursor: 'not-allowed',
@@ -90,20 +96,17 @@ const variantOutline = definePartsStyle(props => {
   return {
     field: {
       border: '1px solid',
-      borderColor: 'inherit',
-      bg: 'inherit',
+      borderColor: 'red.100',
+      bg: mode('green.50', 'whiteAlpha.33')(props),
       _hover: {
-        borderColor: mode('gray.300', 'whiteAlpha.400')(props),
-      },
-      _readOnly: {
-        boxShadow: 'none !important',
-        userSelect: 'all',
+        bg: mode('yellow.50', 'whiteAlpha.66')(props),
+        borderColor: mode('red.400', 'whiteAlpha.400')(props),
       },
     },
     addon: {
       border: '1px solid',
-      borderColor: mode('inherit', 'whiteAlpha.50')(props),
-      bg: mode('gray.100', 'whiteAlpha.300')(props),
+      borderColor: mode('red.400', 'whiteAlpha.50')(props),
+      bg: mode('yellow.50', 'whiteAlpha.300')(props),
     },
   };
 });
@@ -116,10 +119,6 @@ const variantFilled = definePartsStyle(props => {
       bg: mode('gray.100', 'whiteAlpha.50')(props),
       _hover: {
         bg: mode('gray.200', 'whiteAlpha.100')(props),
-      },
-      _readOnly: {
-        boxShadow: 'none !important',
-        userSelect: 'all',
       },
     },
     addon: {
@@ -138,10 +137,6 @@ const variantFlushed = definePartsStyle(props => {
       borderRadius: '0',
       px: '0',
       bg: 'transparent',
-      _readOnly: {
-        boxShadow: 'none !important',
-        userSelect: 'all',
-      },
     },
     addon: {
       borderBottom: '2px solid',
@@ -166,27 +161,6 @@ const variantUnstyled = definePartsStyle({
   },
 });
 
-const myTheme = definePartsStyle({
-  field: {
-    width: '100%',
-    border: '1px solid',
-    borderColor: 'gray.200',
-    background: 'gray.50',
-    borderRadius: 'full',
-    height: '2rem',
-    fontSize: '3xl',
-  },
-  addon: {
-    border: '1px solid',
-    borderColor: 'gray.200',
-    background: 'green.50',
-    borderRadius: 'md',
-    color: 'blue.400',
-    height: '2rem',
-    fontSize: '3xl',
-  },
-});
-
 const variants = {
   outline: variantOutline,
   filled: variantFilled,
@@ -194,23 +168,8 @@ const variants = {
   unstyled: variantUnstyled,
 };
 
-// export const inputTheme = defineMultiStyleConfig({
-//   baseStyle,
-//   sizes,
-//   variants,
-//   defaultProps: {
-//     size: 'xl',
-//     variant: 'outline',
-//   },
-// });
-
 export const inputTheme = defineMultiStyleConfig({
   baseStyle,
   sizes,
   variants,
-  defaultTheme: {
-    baseTheme: myTheme,
-    variants: variantOutline,
-    size: 'lg',
-  },
 });

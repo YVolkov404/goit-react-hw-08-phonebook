@@ -1,11 +1,21 @@
-import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
-
-const sizes = {
-  xl: defineStyle({
-    maxW: '50ch',
-    py: '6',
-    fontSize: 'xl',
-  }),
+export const containerTheme = {
+  variants: {
+    primary: {
+      bgColor: 'green.50',
+      borderColor: 'blue.400',
+      p: '80px 30px',
+    },
+    secondary: {
+      bgColor: 'yellow.50',
+      borderColor: 'red.400',
+      p: '80px 30px',
+    },
+  },
+  sizes: {
+    xl: {
+      maxW: '50ch',
+      py: '6',
+      fontSize: 'xl',
+    },
+  },
 };
-
-export const containerTheme = defineStyleConfig({ sizes });

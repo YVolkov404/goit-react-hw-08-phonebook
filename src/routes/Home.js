@@ -7,7 +7,7 @@ import { Layout } from 'Layout';
 export default function Home() {
   return (
     <HomePage>
-      <Layout fallback />
+      <Layout />
     </HomePage>
   );
 }

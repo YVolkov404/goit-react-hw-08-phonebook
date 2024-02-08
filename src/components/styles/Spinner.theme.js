@@ -1,11 +1,13 @@
 export const spinnerTheme = {
   baseStyle: {
-    thickness: '5px',
+    mt: '460px',
+    w: '70px',
+    h: '70px',
+
+    color: 'red',
   },
   defaultProps: {
-    color: 'red.400',
-    emptyColor: 'yellow.50',
-    size: '2xl',
+    colorScheme: 'red',
     variant: 'bold',
   },
 };

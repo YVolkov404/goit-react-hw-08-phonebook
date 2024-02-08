@@ -99,6 +99,7 @@ const baseStyle = definePartsStyle(props => ({
  * Since the `maxWidth` prop references theme.sizes internally,
  * we can leverage that to size our modals.
  */
+
 function getSize(value) {
   if (value === 'full') {
     return definePartsStyle({

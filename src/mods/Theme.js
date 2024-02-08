@@ -5,12 +5,12 @@ import { skeletonTheme } from 'components/styles/Skeleton.theme';
 import { headingTheme } from 'components/styles/Heading.theme';
 import { tooltipTheme } from 'components/styles/Tooltip.theme';
 import { buttonTheme } from 'components/styles/Button.theme';
-import { modalTheme } from 'components/modal/Modal.styled';
+import { modalTheme } from 'components/styles/Modal.theme';
 import { labelTheme } from 'components/styles/Form.theme';
 import { iconTheme } from 'components/styles/Icon.theme';
 import { alertTheme } from 'components/styles/Alert.theme';
-import { containerTheme } from 'components/styles/Layout.theme';
 import { spinnerTheme } from 'components/styles/Spinner.theme';
+import { containerTheme } from 'components/styles/Layout.theme';
 
 // import { ColorModeSwitcher } from './ColorModeSwitcher';
 
@@ -24,6 +24,10 @@ const theme = extendTheme({
         fontWeight: 'semibold',
         color: 'gray.600',
       },
+      'div, h1': {
+        p: '0',
+        m: '0',
+      },
       section: {
         w: '560px',
         h: '947px',
@@ -36,6 +40,7 @@ const theme = extendTheme({
         fontSize: '3xl',
       },
       label: {
+        fontFamily: 'Lilita One, serif',
         fontSize: 'lg',
         mb: '0',
       },
@@ -52,7 +57,6 @@ const theme = extendTheme({
   },
   components: {
     Button: buttonTheme,
-    Container: containerTheme,
     Skeleton: skeletonTheme,
     Heading: headingTheme,
     Tooltip: tooltipTheme,
@@ -62,6 +66,7 @@ const theme = extendTheme({
     Icon: iconTheme,
     Spinner: spinnerTheme,
     Alert: alertTheme,
+    Container: containerTheme,
   },
 });
 
