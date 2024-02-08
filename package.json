@@ -40,7 +40,8 @@
     "eject": "react-scripts eject",
     "lint:js": "eslint src/**/*.{js,jsx}",
     "theme": "chakra-cli tokens src/mods/Theme.js",
-    "theme:watch": "chakra-cli tokens src/mods/Theme.js --watch"
+    "theme:watch": "chakra-cli tokens src/mods/Theme.js --watch",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache"
   },
   "eslintConfig": {
     "extends": [

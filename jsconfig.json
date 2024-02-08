@@ -2,10 +2,5 @@
   "compilerOptions": {
     "baseUrl": "src"
   },
-  "include": [
-    "src",
-    "src/components/contacts/rdx/contactsFilterSlice.js",
-    "hooks",
-    "src/services"
-  ]
+  "include": ["src", "src/rdx/contactsFilaterSlice.js", "hooks", "src/services"]
 }
