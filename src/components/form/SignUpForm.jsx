@@ -41,16 +41,13 @@ const validation = Yup.object({
 export const SingUpForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    console.log(form);
-
+  const handleSubmit = values => {
+    const { name, email, password } = values;
     dispatch(
       signup({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+        name: name,
+        email: email,
+        password: password,
       })
     );
   };
@@ -77,13 +74,13 @@ export const SingUpForm = () => {
           zIndex="999"
         >
           <FormControl isInvalid={formik.errors.name && formik.touched.name}>
-            <FormLabel as="label" variant="secondary">
+            <FormLabel as="label" variant="primary">
               Name
             </FormLabel>
 
             <Tooltip
-              label={formik.errors.name}
-              placement="top-e"
+              label={formik.values.name}
+              placement="top-end"
               isOpen={true}
               variant="primary"
             >
@@ -96,6 +93,7 @@ export const SingUpForm = () => {
                   type="text"
                   {...formik.getFieldProps('name')}
                   placeholder="Jane Dow"
+                  size="md"
                   value={formik.values.name}
                   onChange={formik.handleChange}
                 />
@@ -116,7 +114,7 @@ export const SingUpForm = () => {
             >
               <InputGroup>
                 <InputLeftAddon>
-                  <Icon as={HiMail} />
+                  <Icon as={HiMail} variant="primary" />
                 </InputLeftAddon>
                 <Input
                   name="email"
@@ -124,7 +122,7 @@ export const SingUpForm = () => {
                   {...formik.getFieldProps('email')}
                   placeholder="john-dow@mail.com"
                   size="md"
-                  value={formik.values.email}
+                  value={formik.email}
                   onChange={formik.handleChange}
                 />
               </InputGroup>
@@ -139,9 +137,10 @@ export const SingUpForm = () => {
             </FormLabel>
 
             <Tooltip
-              label={formik.errors.password}
+              label={formik.password}
               isOpen="true"
               placement="top-end"
+              variant="primary"
             >
               <InputGroup>
                 <InputLeftAddon>

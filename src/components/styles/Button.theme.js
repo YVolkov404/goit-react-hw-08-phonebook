@@ -1,15 +1,12 @@
 export const buttonTheme = {
-  // style object for base or default style
   baseStyle: {
     fontFamily: 'Lilita One, serif',
     textTransform: 'uppercase',
-
     borderBottom: '0.5rem solid',
     borderRadius: '3xl',
     transitionProperty: 'common',
     transitionDuration: 'normal',
   },
-  // styles for different sizes ("sm", "md", "lg")
   sizes: {
     lg: {
       fontSize: '3xl',
@@ -17,7 +14,6 @@ export const buttonTheme = {
       h: '14',
     },
   },
-  // styles for different visual variants ("outline", "solid")
   variants: {
     primary: {
       color: 'red.400',
@@ -34,7 +30,6 @@ export const buttonTheme = {
       },
     },
   },
-  // default values for 'size', 'variant' and 'colorScheme'
   defaultProps: {
     size: 'lg',
     variant: 'primary',

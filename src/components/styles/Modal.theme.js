@@ -42,7 +42,7 @@ const baseStyleBody = defineStyle(props => {
   const { scrollBehavior } = props;
   return {
     px: '6',
-    py: '2',
+    py: '0',
     flex: '1',
     overflow: scrollBehavior === 'inside' ? 'auto' : undefined,
   };
@@ -59,33 +59,33 @@ const baseStyle = definePartsStyle(props => ({
     baseStyleDialogContainer,
   },
   dialog: {
-    height: '500px',
+    height: '550px',
     p: '0',
     border: '1rem solid',
     borderRadius: '2xl',
 
     bg: 'yellow.50',
-    borderColor: 'green.50',
+    borderColor: 'green.100',
   },
 
   header: {
     mx: '0.5rem',
     mt: '3rem',
-    mb: '1.5rem',
+    mb: '1rem',
     padding: '0',
-    fontSize: '4xl',
-    fontWeight: 'semibold',
+    fontSize: '3xl',
+    fontWeight: 'bold',
     textAlign: 'center',
 
     textShadow: '1px 2px 8px rgba(74,85,104,0.45)',
     p: {
-      letterSpacing: '0.125em',
+      letterSpacing: '0.075em',
     },
   },
   closeButton: {
     position: 'absolute',
-    top: '2',
-    insetEnd: '3',
+    top: '3',
+    insetEnd: '4',
     _hover: {
       bg: 'blue.400',
       color: 'yellow.50',
@@ -94,11 +94,6 @@ const baseStyle = definePartsStyle(props => ({
   body: { baseStyleBody },
   footer: baseStyleFooter,
 }));
-
-/**
- * Since the `maxWidth` prop references theme.sizes internally,
- * we can leverage that to size our modals.
- */
 
 function getSize(value) {
   if (value === 'full') {

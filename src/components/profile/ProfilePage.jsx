@@ -3,6 +3,7 @@ import {
   Avatar,
   Box,
   Button,
+  Container,
   Divider,
   Flex,
   Heading,
@@ -14,12 +15,7 @@ import { Link } from 'react-router-dom';
 
 export const ProfilePage = () => {
   return (
-    <Box
-      position='relative'
-      as='section'
-      bgColor='green.50'
-      borderColor='blue.400'
-    >
+    <Container as="section" position="relative">
       <Button
         as={Link}
         position={'absolute'}
@@ -31,39 +27,39 @@ export const ProfilePage = () => {
         <ArrowBackIcon />
       </Button>
       <Box
-        position='relative'
-        w='100%'
-        h='725px'
-        mt='3rem'
-        bg='yellow.50'
-        borderRadius='3xl'
+        position="relative"
+        w="100%"
+        h="725px"
+        mt="3rem"
+        bg="yellow.50"
+        borderRadius="3xl"
         boxShadow={'md'}
         p={35}
       >
         <Flex
-          align='center'
+          align="center"
           // justify='space-between'
-          direction='column'
-          alignContent='flex-end'
-          h='100%'
+          direction="column"
+          alignContent="flex-end"
+          h="100%"
         >
           <Avatar
-            position='absolute'
-            right='5rem'
+            position="absolute"
+            right="5rem"
             top={-75}
             w={36}
             h={36}
             bg={'blue.400'}
             boxShadow={'xl'}
-            icon={<BiGame size='lg' />}
-            variant='roundedSquare'
+            icon={<BiGame size="lg" />}
+            variant="roundedSquare"
           ></Avatar>
           <Heading
             mt={84}
             size={'3xl'}
             fontFamily={'Lilita One, serif'}
-            bgGradient='linear(to-r, blue.600, blue.400, blue.300, red.300, red.400, red.600)'
-            bgClip='text'
+            bgGradient="linear(to-r, blue.600, blue.400, blue.300, red.300, red.400, red.600)"
+            bgClip="text"
           >
             Profile
           </Heading>
@@ -90,15 +86,15 @@ export const ProfilePage = () => {
               ></Box>
             </Box>
 
-            <Button as={Link} to='/' variant={'secondary'}>
+            <Button as={Link} to="/" variant={'secondary'}>
               LogOut
             </Button>
           </VStack>
-          <Button mt={20} alignSelf={'flex-end'} as={Link} to='/not-found'>
+          <Button mt={20} alignSelf={'flex-end'} as={Link} to="/not-found">
             Delete Account
           </Button>
         </Flex>
       </Box>
-    </Box>
+    </Container>
   );
 };

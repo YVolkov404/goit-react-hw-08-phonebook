@@ -5,12 +5,12 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
   Button,
   Text,
+  ModalFooter,
 } from '@chakra-ui/react';
 
 export const ModalBox = () => {
@@ -18,26 +18,24 @@ export const ModalBox = () => {
 
   return (
     <>
-      <Button w='xs' onClick={onOpen}>
+      <Button w="xs" onClick={onOpen}>
         Add Contact
       </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>
             <Text>You can add a contact here</Text>
           </ModalHeader>
 
-          <ModalCloseButton rounded='full' />
+          <ModalCloseButton rounded="full" />
           <ModalBody>
             <ModalForm />
           </ModalBody>
 
           <ModalFooter>
-            <Button type='submit' onClick={onClose}>
-              Add Contact
-            </Button>
+            <Text as="copyright">fantom_ass 2014</Text>
           </ModalFooter>
         </ModalContent>
       </Modal>

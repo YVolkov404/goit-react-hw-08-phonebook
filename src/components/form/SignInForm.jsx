@@ -1,7 +1,8 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-
-//-----------------------------------------------------------
+import { useDispatch } from 'react-redux';
+import { signin } from 'rdx/authorization';
+//-------------------------------------------
 import {
   Button,
   Input,
@@ -15,16 +16,32 @@ import {
 } from '@chakra-ui/react';
 
 import { HiMail, HiKey } from 'react-icons/hi';
+//------------------------------------------
 
 const validation = Yup.object({
   email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()
-    .min(5, 'Password too short!')
-    .max(24, 'Password too long!')
+    .min(6, 'Weak password!')
+    .min(9, 'Fair password')
+    .min(12, 'Good password!')
+    .max(15, 'Strong password!')
     .required('Required'),
 });
-
+//-------------------------------------------
 export const SignInForm = () => {
+  const dispatch = useDispatch();
+
+  const handleSubmit = values => {
+    const { email, password } = values;
+
+    dispatch(
+      signin({
+        email: email,
+        password: password,
+      })
+    );
+  };
+
   return (
     <Formik
       initialValues={{
@@ -33,16 +50,16 @@ export const SignInForm = () => {
       }}
       validationSchema={validation}
       onSubmit={(values, actions) => {
-        alert(JSON.stringify(values, null, 2));
+        handleSubmit(values);
         actions.resetForm();
       }}
     >
       {formik => (
         <Stack
+          onSubmit={formik.handleSubmit}
           as="form"
           w="100%"
           spacing="1.5rem"
-          onSubmit={formik.handleSubmit}
         >
           <FormControl isInvalid={formik.errors.email && formik.touched.email}>
             <FormLabel as="label" variant="primary">
@@ -83,10 +100,11 @@ export const SignInForm = () => {
               label={formik.errors.password}
               isOpen="true"
               placement="top-end"
+              variant="primary"
             >
               <InputGroup>
                 <InputLeftAddon>
-                  <Icon as={HiKey} variant="primary" />
+                  <Icon as={HiKey} />
                 </InputLeftAddon>
                 <Input
                   name="password"

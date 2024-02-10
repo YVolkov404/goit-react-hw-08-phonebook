@@ -18,7 +18,7 @@ export const headingTheme = {
     },
   },
   defaultProps: {
-    size: '2xl',
+    size: '3xl',
     variant: 'primary',
   },
 };

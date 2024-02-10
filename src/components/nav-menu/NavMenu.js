@@ -1,16 +1,30 @@
-import { Button } from '@chakra-ui/react';
-// import { HomePage } from 'components/home/HomePage';
-// import { RegisterPage } from 'components/register/RegisterPage';
-import { Link } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
+import { Button, HStack } from '@chakra-ui/react';
 
 export const NavMenu = () => {
   return (
-    <>
-      <Link to="/" component={<Button variant="secondary">Home</Button>} />
-      <Link
-        to="/login"
-        component={<Button variant="secondary">SignIn</Button>}
-      />
-    </>
+    <HStack w="100%" justify="space-between">
+      <Button type="button" as={NavLink} to="/">
+        Home
+      </Button>
+      {/* <Route
+          to="/login"
+          component={
+            <Button as={NavLink} to="/register">
+              SignUp
+            </Button>
+          }
+        /> */}
+      {(<Route path="/login" /> && (
+        <Button type="button" as={NavLink} to="/register">
+          SignUp
+        </Button>
+      )) ||
+        (<Route path="/login" /> && (
+          <Button as={NavLink} to="/login">
+            SignIn
+          </Button>
+        ))}
+    </HStack>
   );
 };

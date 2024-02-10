@@ -56,10 +56,16 @@ function App() {
         />
         <Route
           path="/contacts"
-          element={<PrivateRoute redirectTo="/" component={<ContactsPage />} />}
+          element={<PrivateRoute component={<ContactsPage />} />}
         >
-          <Route path="contactId" component={<InfoPage />} />
-          <Route path="profile" component={<ProfilePage />} />
+          <Route
+            path="contactId"
+            element={<PrivateRoute component={<InfoPage />} />}
+          />
+          <Route
+            path="profile"
+            element={<PrivateRoute component={<ProfilePage />} />}
+          />
         </Route>
         <Route path="*" component={<NotFoundPage />} />
       </Route>

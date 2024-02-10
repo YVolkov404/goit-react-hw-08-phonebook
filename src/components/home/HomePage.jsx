@@ -36,9 +36,7 @@ export const HomePage = () => {
           </VStack>
         </VStack>
         <Box>
-          <Text fontSize="xl" fontWeight="normal">
-            fantom_ass 2014
-          </Text>
+          <Text as="copyright">fantom_ass 2014</Text>
         </Box>
       </VStack>
     </Container>

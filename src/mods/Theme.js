@@ -36,13 +36,21 @@ const theme = extendTheme({
         boxShadow: 'lg',
         p: '5rem 2rem',
       },
-      p: {
-        fontSize: '3xl',
-      },
       label: {
         fontFamily: 'Lilita One, serif',
         fontSize: 'lg',
         mb: '0',
+      },
+      p: {
+        fontSize: '3xl',
+      },
+      copyright: {
+        fontSize: 'xl',
+        fontWeight: 'bold',
+        bgGradient:
+          'linear(to-r, blue.600, blue.400, blue.300, red.300, red.400, red.600)',
+        bgClip: 'text',
+        m: '0 auto',
       },
     },
     colors: {
