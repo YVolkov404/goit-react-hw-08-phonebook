@@ -1,5 +1,8 @@
 import { NavLink, Route } from 'react-router-dom';
 import { Button, HStack } from '@chakra-ui/react';
+import { RegisterPage } from 'components/register/RegisterPage';
+import { LoginPage } from 'components/login/LoginPage';
+import { NotFoundPage } from 'components/not-found/NotFoundPage';
 
 export const NavMenu = () => {
   return (
@@ -7,24 +10,19 @@ export const NavMenu = () => {
       <Button type="button" as={NavLink} to="/">
         Home
       </Button>
-      {/* <Route
-          to="/login"
-          component={
-            <Button as={NavLink} to="/register">
-              SignUp
-            </Button>
-          }
-        /> */}
-      {<Route path="/login" /> && (
+      {<Route element={<LoginPage />} /> ? (
         <Button type="button" as={NavLink} to="/register">
           SignUp
         </Button>
+      ) : (
+        <Route element={<NotFoundPage />} />
       )}
-      &&
-      {<Route path="/register" /> && (
+      {<Route element={<RegisterPage />} /> ? (
         <Button type="button" as={NavLink} to="/login">
           SignIn
         </Button>
+      ) : (
+        <Route element={<NotFoundPage />} />
       )}
     </HStack>
   );

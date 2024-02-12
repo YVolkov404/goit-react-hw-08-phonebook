@@ -1,31 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ReactShadowScrollComponent from 'react-shadow-scroll';
 import {
   Avatar,
   Box,
   Flex,
-  FormControl,
   HStack,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Text,
   Stack,
   Image,
+  StackItem,
   // Skeleton,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import { BiFilterAlt } from 'react-icons/bi';
 import { ModalBox } from 'components/modal/Modal';
-import { StackItems } from './ContactList';
+import { Contacts } from './ContactList';
+//----------------------------------------------------
+import { getAllContacts } from 'rdx/operations';
+import { selectContacts } from 'hooks/FilteredContacts';
 //-----------------------------------------------------
 import contactsImg from '../../media/contacts.svg';
+import { Filter } from './ContactsFilter';
 
 // import data from '../../data.json';
 
 export const ContactsPage = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
+
+  useEffect(() => {
+    dispatch(getAllContacts());
+  }, [dispatch]);
+
   return (
-    <Box as="section" bg="green.50" borderColor="blue.400">
+    <Box as="section" variant="primary">
       <Flex
         position="relative"
         align="center"
@@ -52,7 +60,7 @@ export const ContactsPage = () => {
               Usercat
             </Text>
           </Link>
-          <Link to={'/Profile'}>
+          <Link to={'/profile'}>
             <Avatar
               size="xl"
               variant="roundedSquare"
@@ -62,15 +70,7 @@ export const ContactsPage = () => {
           </Link>
         </HStack>
 
-        <FormControl mt={'6rem'}>
-          <InputGroup>
-            <InputLeftElement>
-              <BiFilterAlt />
-            </InputLeftElement>
-
-            <Input variant="filled" placeholder="You can filter contacts" />
-          </InputGroup>
-        </FormControl>
+        <Filter />
 
         <Stack
           w="100%"
@@ -92,7 +92,7 @@ export const ContactsPage = () => {
             scroll-behavior="revert"
           >
             <Stack spacing={2}>
-              <StackItems />
+              {contacts.length > 0 && <Contacts as={StackItem} />}
             </Stack>
             <Box w="100%" h="85%" bg={'yellow.50'}>
               <Image w="100%" mt={'5rem'} src={contactsImg} alt="Cat" />

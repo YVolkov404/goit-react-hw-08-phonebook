@@ -1,7 +1,8 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
 
-//-----------------------------------------------------------
+//----------------------------------------------
 import {
   Input,
   FormControl,
@@ -18,11 +19,10 @@ import {
 } from '@chakra-ui/react';
 
 import { HiUserCircle, HiPhone } from 'react-icons/hi';
-import { useDispatch, useSelector } from 'react-redux';
+//--------------------------------------------
 import { addContact } from 'rdx/operations';
 import { selectContacts } from 'hooks/FilteredContacts';
-
-//-----------------------------------------------
+//--------------------------------------------
 
 const validation = Yup.object({
   name: Yup.string()
