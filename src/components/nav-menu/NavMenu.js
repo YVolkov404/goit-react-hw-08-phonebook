@@ -15,16 +15,17 @@ export const NavMenu = () => {
             </Button>
           }
         /> */}
-      {(<Route path="/login" /> && (
+      {<Route path="/login" /> && (
         <Button type="button" as={NavLink} to="/register">
           SignUp
         </Button>
-      )) ||
-        (<Route path="/login" /> && (
-          <Button as={NavLink} to="/login">
-            SignIn
-          </Button>
-        ))}
+      )}
+      &&
+      {<Route path="/register" /> && (
+        <Button type="button" as={NavLink} to="/login">
+          SignIn
+        </Button>
+      )}
     </HStack>
   );
 };

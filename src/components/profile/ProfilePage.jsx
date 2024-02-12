@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 
 export const ProfilePage = () => {
   return (
-    <Container as="section" position="relative">
+    <Container as="section" position="relative" variant="primary">
       <Button
         as={Link}
         position={'absolute'}

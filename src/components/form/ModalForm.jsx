@@ -20,7 +20,7 @@ import {
 import { HiUserCircle, HiPhone } from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'rdx/operations';
-import { selectContacts } from 'rdx/selectors';
+import { selectContacts } from 'hooks/FilteredContacts';
 
 //-----------------------------------------------
 
@@ -59,8 +59,6 @@ export const ModalForm = values => {
       );
     } catch (error) {}
   };
-
-  console.log(values);
 
   return (
     <Formik

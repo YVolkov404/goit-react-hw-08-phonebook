@@ -4,7 +4,7 @@ import { PrivateRoute } from 'PrivateRoute';
 import { RestrictedRoute } from 'RestrictedRoute';
 import { useDispatch } from 'react-redux';
 //-----------------------------------------------
-import { useAuth } from '../hooks/Hooks';
+import { useAuth } from '../hooks/AuthHook';
 import { refreshing } from 'rdx/authorization';
 import { Layout } from '../Layout';
 // import { Alert, AlertIcon } from '@chakra-ui/react';
@@ -56,7 +56,9 @@ function App() {
         />
         <Route
           path="/contacts"
-          element={<PrivateRoute component={<ContactsPage />} />}
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
         >
           <Route
             path="contactId"

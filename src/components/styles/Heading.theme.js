@@ -14,7 +14,7 @@ export const headingTheme = {
     secondary: {
       color: 'red.400',
       textShadow: '1px 2px 8px rgba(74,85,104,0.45)',
-      letterSpacing: '0.225em',
+      letterSpacing: '0.175em',
     },
   },
   defaultProps: {

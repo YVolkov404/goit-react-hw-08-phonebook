@@ -74,19 +74,19 @@ export const SingUpForm = () => {
           zIndex="999"
         >
           <FormControl isInvalid={formik.errors.name && formik.touched.name}>
-            <FormLabel as="label" variant="primary">
+            <FormLabel as="label" variant="secondary">
               Name
             </FormLabel>
 
             <Tooltip
-              label={formik.values.name}
+              label={formik.errors.name}
               placement="top-end"
               isOpen={true}
               variant="primary"
             >
               <InputGroup>
                 <InputLeftAddon>
-                  <Icon as={HiUserCircle} variant="primary" />
+                  <Icon as={HiUserCircle} variant="secondary" />
                 </InputLeftAddon>
                 <Input
                   name="name"
@@ -102,7 +102,7 @@ export const SingUpForm = () => {
           </FormControl>
 
           <FormControl isInvalid={formik.errors.email && formik.touched.email}>
-            <FormLabel as="label" variant="primary">
+            <FormLabel as="label" variant="secondary">
               Email
             </FormLabel>
 
@@ -114,7 +114,7 @@ export const SingUpForm = () => {
             >
               <InputGroup>
                 <InputLeftAddon>
-                  <Icon as={HiMail} variant="primary" />
+                  <Icon as={HiMail} variant="secondary" />
                 </InputLeftAddon>
                 <Input
                   name="email"
@@ -132,7 +132,7 @@ export const SingUpForm = () => {
           <FormControl
             isInvalid={formik.errors.password && formik.touched.password}
           >
-            <FormLabel as="label" variant="primary">
+            <FormLabel as="label" variant="secondary">
               Password
             </FormLabel>
 
@@ -144,7 +144,7 @@ export const SingUpForm = () => {
             >
               <InputGroup>
                 <InputLeftAddon>
-                  <Icon as={HiKey} variant="primary" />
+                  <Icon as={HiKey} variant="secondary" />
                 </InputLeftAddon>
                 <Input
                   name="password"
