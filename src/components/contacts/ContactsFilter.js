@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getSearchQuery } from 'rdx/contactsFilterSlice';
-import { filteredContacts } from 'hooks/FilteredContacts';
+import { selectFilteredContacts } from 'hooks/FilteredContacts';
 import {
   FormControl,
   FormErrorMessage,
@@ -11,14 +11,14 @@ import {
 import { BiFilterAlt } from 'react-icons/bi';
 //-------------------------------------------------
 export const Filter = () => {
-  const filter = useSelector(filteredContacts);
+  const filter = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
 
   const handleChange = e => dispatch(getSearchQuery(e.target.value));
   const isError = filter === '';
 
   return (
-    <FormControl as="form" isInvalid={isError} mt={'6rem'}>
+    <FormControl as="form" isInvalid={isError} mt="6rem">
       <InputGroup>
         <InputLeftElement>
           <BiFilterAlt />
