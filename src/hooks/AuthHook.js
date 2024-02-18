@@ -3,7 +3,7 @@ import {
   selectUser,
   selectIsUserLoggedIn,
   selectIsAccessRefreshing,
-} from '../rdx/selectors';
+} from '../rdx/auth/selectors';
 
 export const useAuth = () => {
   const isLoggedIn = useSelector(selectIsUserLoggedIn);

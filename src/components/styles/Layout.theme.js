@@ -13,6 +13,7 @@ export const containerTheme = {
   },
   sizes: {
     xl: {
+      minW: '50ch',
       maxW: '50ch',
       py: '6',
       fontSize: 'xl',

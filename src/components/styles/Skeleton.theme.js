@@ -1,7 +1,7 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/react';
 
 const xl = defineStyle({
-  h: 12,
+  h: 24,
   borderRadius: 'xl',
 });
 

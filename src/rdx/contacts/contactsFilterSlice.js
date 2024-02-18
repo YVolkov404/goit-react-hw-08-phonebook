@@ -12,4 +12,4 @@ export const filterSlice = createSlice({
 //-------------------------------------------------------
 export const { getSearchQuery } = filterSlice.actions;
 
-export const contactsFilterReducer = filterSlice.reducer;
+export const filterReducer = filterSlice.reducer;

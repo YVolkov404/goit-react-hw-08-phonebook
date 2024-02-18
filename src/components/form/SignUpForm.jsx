@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 //-----------------------------------------------------------
 
-import { signup } from 'rdx/authorization';
+import { signup } from 'rdx/auth/authorization';
 
 //-----------------------------------------------------------
 import {
@@ -25,7 +25,7 @@ import { HiUserCircle, HiMail, HiKey } from 'react-icons/hi';
 const validation = Yup.object({
   name: Yup.string()
     .min(5, 'Name too short!')
-    .max(16, 'Name too long!')
+    .max(14, 'Name too long!')
     .required('Required'),
   email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()

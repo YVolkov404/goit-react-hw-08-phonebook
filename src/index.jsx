@@ -17,22 +17,15 @@ import theme from './mods/Theme';
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <Root />,
-//   },
-// ]);
-
 root.render(
   <StrictMode>
     <Provider store={store}>
       <PersistGate loading={<Spinner />} persistor={persistor}>
-        <ChakraProvider resetCSS theme={theme}>
-          <BrowserRouter basename="/goit-react-hw-08-phonebook">
+        <BrowserRouter basename="/goit-react-hw-08-phonebook">
+          <ChakraProvider resetCSS theme={theme}>
             <App />
-          </BrowserRouter>
-        </ChakraProvider>
+          </ChakraProvider>
+        </BrowserRouter>
       </PersistGate>
     </Provider>
   </StrictMode>

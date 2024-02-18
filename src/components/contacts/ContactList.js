@@ -1,45 +1,51 @@
-import { NavLink } from 'react-router-dom';
+import { Link as ReactRouterLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
-
-//---------------------------------------------
-import { List, Skeleton, Text, Wrap } from '@chakra-ui/react';
-import { filteredContacts } from 'hooks/FilteredContacts';
+//--------------------------------------------
+import { filteredContacts } from 'hooks/FilterHook';
+//--------------------------------------------
+import { Link, List, Skeleton, Text, Wrap } from '@chakra-ui/react';
 //--------------------------------------------
 
-export const Contacts = () => {
-  const { isLoading, setIsLoading } = useState(true);
+export const Contacts = ({ location }) => {
+  // const [isLoading, setIsLoading] = useState(true);
   const contacts = useSelector(filteredContacts);
 
-  setIsLoading(() => {
-    if (contacts.length > 0) {
-      return isLoading === false;
-    }
-  });
+  console.log(location);
 
   return (
-    <Wrap as={List}>
-      {contacts.map(({ id, name, number }) => {
-        return (
-          <Skeleton
-            key={id}
-            isLoaded={isLoading}
-            bg="green.50"
-            p="3px 5px 2px 10px"
-            boxShadow={'base'}
-            _hover={{
-              color: 'yellow.50',
-              bg: 'blue.400',
-              cursor: 'pointer',
-            }}
-          >
-            <NavLink>
-              <Text as="span">{name}:</Text>
-              <Text as="span">{number}</Text>
-            </NavLink>
-          </Skeleton>
-        );
-      })}
-    </Wrap>
+    (contacts !== undefined || contacts > 0) && (
+      <Wrap as={List}>
+        {contacts.map(({ id, name, number }) => {
+          return (
+            <Skeleton
+              key={id}
+              isLoaded={true}
+              fadeDuration={1}
+              w="100%"
+              boxShadow="md"
+              borderLeftRadius="xl"
+              overflow="hidden"
+              _hover={{
+                boxShadow: 'none',
+              }}
+            >
+              <Link
+                as={ReactRouterLink}
+                variant="brandPrimary"
+                to={`/contacts/${id}`}
+                state={{ from: location }}
+              >
+                <Text as="span" color="red.400" fontSize="2xl">
+                  {name}:
+                </Text>
+                <Text as="span" color="green.200" fontSize="2xl">
+                  {number}
+                </Text>
+              </Link>
+            </Skeleton>
+          );
+        })}
+      </Wrap>
+    )
   );
 };

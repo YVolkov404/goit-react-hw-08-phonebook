@@ -1,14 +1,14 @@
-import { SignInForm } from '../form/SignInForm';
-import { NavMenu } from 'components/nav-menu/NavMenu';
+import { SignInForm } from 'components/form/SignInForm';
+import { LoginNavMenu } from 'components/nav-menu/LoginNavMenu';
 import { Box, Heading, Image, Container, VStack } from '@chakra-ui/react';
 //-------------------------------------
-import loginPgImg from '../../media/login.svg';
-//-------------------------------------
-export const LoginPage = () => {
+import loginPgImg from 'media/login.svg';
+//----------------------------------------------------
+export default function Login() {
   return (
     <Container as="section" variant="secondary">
       <VStack spacing="2.5rem">
-        <NavMenu />
+        <LoginNavMenu />
         <Heading as="h1" fontSize="2.7rem">
           Welcome Back
         </Heading>
@@ -19,4 +19,4 @@ export const LoginPage = () => {
       </VStack>
     </Container>
   );
-};
+}

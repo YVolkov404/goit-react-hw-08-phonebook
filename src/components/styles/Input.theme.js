@@ -95,16 +95,26 @@ const sizes = {
 const variantOutline = definePartsStyle(props => {
   return {
     field: {
-      border: '1px solid',
-      borderColor: 'red.100',
+      color: 'gray.600',
+      border: '2px solid',
+      borderColor: 'red.400',
       bg: mode('green.50', 'whiteAlpha.33')(props),
       _hover: {
         bg: mode('yellow.50', 'whiteAlpha.66')(props),
-        borderColor: mode('red.400', 'whiteAlpha.400')(props),
+        borderColor: mode('red.400', 'whiteAlpha.66')(props),
+      },
+      _focusVisible: {
+        border: '2px solid',
+        borderColor: mode('red.400', 'whiteAlpha.33')(props),
+      },
+      _focus: {
+        borderColor: mode('red.400', 'whiteAlpha.33')(props),
+        bg: mode('yellow.50', 'whiteAlpha.66')(props),
+        boxShadow: 'none',
       },
     },
     addon: {
-      border: '1px solid',
+      border: '2px solid',
       borderColor: mode('red.400', 'whiteAlpha.50')(props),
       bg: mode('yellow.50', 'whiteAlpha.300')(props),
     },
@@ -114,17 +124,32 @@ const variantOutline = definePartsStyle(props => {
 const variantFilled = definePartsStyle(props => {
   return {
     field: {
+      color: 'red.400',
+      fontSize: '3xl',
       border: '2px solid',
       borderColor: 'transparent',
-      bg: mode('gray.100', 'whiteAlpha.50')(props),
+      boxShadow: 'md',
+      bg: mode('yellow.50', 'whiteAlpha.33')(props),
+      _placeholder: {
+        color: 'blue.300',
+      },
       _hover: {
-        bg: mode('gray.200', 'whiteAlpha.100')(props),
+        bg: mode('blue.50', 'whiteAlpha.33')(props),
+        borderColor: mode('blue.100', 'whiteAlpha.66')(props),
+        boxShadow: 'none',
+      },
+      _focusVisible: {
+        borderColor: mode('blue.200', 'whiteAlpha.66')(props),
+        boxShadow: 'base',
+        _placeholder: {
+          color: 'blue.400',
+        },
       },
     },
     addon: {
       border: '2px solid',
       borderColor: 'transparent',
-      bg: mode('gray.100', 'whiteAlpha.50')(props),
+      bg: mode('yellow.50', 'whiteAlpha.66')(props),
     },
   };
 });

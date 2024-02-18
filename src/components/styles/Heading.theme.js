@@ -1,10 +1,8 @@
 export const headingTheme = {
-  // style object for base or default style
   baseStyle: {
     fontFamily: 'inherit',
     textTransform: 'uppercase',
   },
-  // styles for different visual variants ("outline", "solid")
   variants: {
     primary: {
       color: 'blue.400',
@@ -15,6 +13,14 @@ export const headingTheme = {
       color: 'red.400',
       textShadow: '1px 2px 8px rgba(74,85,104,0.45)',
       letterSpacing: '0.175em',
+    },
+    extra: {
+      mt: '3rem',
+      fontFamily: 'Lilita One, serif',
+      letterSpacing: '0.175em',
+      bgGradient:
+        'linear(to-r, blue.600, blue.400, blue.300, red.300, red.400, red.600)',
+      bgClip: 'text',
     },
   },
   defaultProps: {

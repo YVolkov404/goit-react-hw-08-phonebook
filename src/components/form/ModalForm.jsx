@@ -20,29 +20,29 @@ import {
 
 import { HiUserCircle, HiPhone } from 'react-icons/hi';
 //--------------------------------------------
-import { addContact } from 'rdx/operations';
-import { selectContacts } from 'hooks/FilteredContacts';
+import { addContact } from 'rdx/contacts/operations';
+import { selectContacts } from 'rdx/contacts/selectors';
 //--------------------------------------------
 
 const validation = Yup.object({
   name: Yup.string()
     .min(5, 'Name too short!')
-    .max(16, 'Name too long!')
+    .max(15, 'Name too long!')
     .required('Required'),
   number: Yup.string()
     .min(9, 'Number too short!')
-    .max(14, 'Number too long!')
+    .max(12, 'Number too long!')
     .required('Required'),
 });
 
 //----------------------------------------------
 
-export const ModalForm = values => {
+export const ModalForm = () => {
   const { onClose } = useDisclosure();
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  const submitHandler = async values => {
+  const submitHandler = values => {
     try {
       const { name, number } = values;
       const hasContactName = contacts.some(

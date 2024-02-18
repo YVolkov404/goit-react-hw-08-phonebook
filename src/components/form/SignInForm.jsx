@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { signin } from 'rdx/authorization';
+import { signin } from 'rdx/auth/authorization';
 //-------------------------------------------
 import {
   Button,

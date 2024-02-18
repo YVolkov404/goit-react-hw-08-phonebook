@@ -7,15 +7,16 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { SingUpForm } from 'components/form/SignUpForm';
-import { NavMenu } from 'components/nav-menu/NavMenu';
+import { RegisterNavMenu } from 'components/nav-menu/RegisterNavMenu';
 //------------------------------------------ -
-import registerPgImg from '../../media/register.svg';
-//-------------------------------------------
-export const RegisterPage = () => {
+import registerPgImg from 'media/register.svg';
+
+//-------------------------------------------------------------
+export default function Register() {
   return (
     <Container as="section" variant="primary">
       <VStack spacing="2.5rem">
-        <NavMenu />
+        <RegisterNavMenu />
         <Heading as="h1" variant="secondary">
           Let Us Begin
         </Heading>
@@ -32,4 +33,4 @@ export const RegisterPage = () => {
       </VStack>
     </Container>
   );
-};
+}

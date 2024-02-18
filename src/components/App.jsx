@@ -5,17 +5,17 @@ import { RestrictedRoute } from 'RestrictedRoute';
 import { useDispatch } from 'react-redux';
 //-----------------------------------------------
 import { useAuth } from '../hooks/AuthHook';
-import { refreshing } from 'rdx/authorization';
+import { refreshing } from 'rdx/auth/authorization';
 import { Layout } from '../Layout';
 // import { Alert, AlertIcon } from '@chakra-ui/react';
 
-const HomePage = lazy(() => import('routes/Home'));
-const RegisterPage = lazy(() => import('routes/Register'));
-const ProfilePage = lazy(() => import('routes/Profile'));
-const LoginPage = lazy(() => import('routes/Login'));
-const ContactsPage = lazy(() => import('routes/Contacts'));
-const InfoPage = lazy(() => import('routes/Info'));
-const NotFoundPage = lazy(() => import('routes/NotFound'));
+const HomePage = lazy(() => import('pages/Home'));
+const RegisterPage = lazy(() => import('pages/Register'));
+const ProfilePage = lazy(() => import('pages/Profile'));
+const LoginPage = lazy(() => import('pages/Login'));
+const ContactsPage = lazy(() => import('pages/Contacts'));
+const InfoPage = lazy(() => import('pages/Info'));
+const NotFoundPage = lazy(() => import('pages/NotFound'));
 
 //------------------------------------------------
 
@@ -33,6 +33,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
+
         <Route
           path="/register"
           element={
@@ -42,34 +43,46 @@ function App() {
             />
           }
         />
+
         <Route
           path="/login"
           element={
             <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
           }
         />
+
         <Route
           path="/profile"
           element={
             <PrivateRoute redirectTo="/register" component={<ProfilePage />} />
           }
         />
+
         <Route
           path="/contacts"
-          element={
-            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
-          }
+          element={<PrivateRoute component={<ContactsPage />} />}
         >
-          <Route
-            path="contactId"
-            element={<PrivateRoute component={<InfoPage />} />}
-          />
           <Route
             path="profile"
             element={<PrivateRoute component={<ProfilePage />} />}
           />
         </Route>
-        <Route path="*" component={<NotFoundPage />} />
+
+        <Route
+          path={`/contacts/:id`}
+          element={<PrivateRoute component={<InfoPage />} />}
+        >
+          <Route
+            path="contactId"
+            element={
+              <PrivateRoute redirectTo="/contacts" component={<InfoPage />} />
+            }
+          />
+        </Route>
+        <Route
+          path="*"
+          element={<PrivateRoute redirectTo="/" component={<NotFoundPage />} />}
+        />
       </Route>
     </Routes>
   );

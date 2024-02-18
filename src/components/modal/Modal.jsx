@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+
 import { ModalForm } from 'components/form/ModalForm';
 
 import {
@@ -11,18 +13,27 @@ import {
   Button,
   Text,
   ModalFooter,
+  Box,
 } from '@chakra-ui/react';
 
 export const ModalBox = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const finalRef = useRef(null);
 
   return (
     <>
-      <Button w="xs" onClick={onOpen}>
-        Add Contact
-      </Button>
+      <Box ref={finalRef} w="100%" mb="1.5rem" textAlign="center">
+        <Button w="xs" onClick={onOpen}>
+          Add Contact
+        </Button>
+      </Box>
 
-      <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        finalFocusRef={finalRef}
+        isCentered
+      >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>
@@ -35,7 +46,7 @@ export const ModalBox = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Text as="copyright">fantom_ass 2014</Text>
+            <Text as="samp">fantom_ass 2024</Text>
           </ModalFooter>
         </ModalContent>
       </Modal>

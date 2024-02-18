@@ -1,3 +1,5 @@
+import { Link as ReactRouterLink } from 'react-router-dom';
+//----------------------------------------
 import {
   Button,
   HStack,
@@ -8,12 +10,9 @@ import {
   Box,
   Container,
 } from '@chakra-ui/react';
-
-import { NavLink } from 'react-router-dom';
-
-import homeImg from '../../media/home.svg';
-
-export const HomePage = () => {
+import homeImg from 'media/home.svg';
+//----------------------------------------
+export function HomePage() {
   return (
     <Container as="section" variant="primary">
       <VStack spacing={10}>
@@ -22,7 +21,7 @@ export const HomePage = () => {
         </Box>
         <VStack spacing={10}>
           <HStack justify="center" gap="2rem">
-            <Button type="button" as={NavLink} to="register">
+            <Button type="button" as={ReactRouterLink} to="register">
               SignUp
             </Button>
             <Text>for free</Text>
@@ -30,15 +29,15 @@ export const HomePage = () => {
           <Image src={homeImg} alr="Cats" />
           <VStack spacing={2}>
             <Text>already have an account?</Text>
-            <Button type="button" as={NavLink} to="login">
+            <Button type="button" as={ReactRouterLink} to="login">
               SignIn
             </Button>
           </VStack>
         </VStack>
         <Box>
-          <Text as="copyright">fantom_ass 2014</Text>
+          <Text as="samp">fantom_ass 2014</Text>
         </Box>
       </VStack>
     </Container>
   );
-};
+}

@@ -1,26 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getSearchQuery } from 'rdx/contactsFilterSlice';
-import { selectFilteredContacts } from 'hooks/FilteredContacts';
+import { getSearchQuery } from 'rdx/contacts/contactsFilterSlice';
+import { selectFilteredContacts } from 'rdx/contacts/selectors';
 import {
   FormControl,
-  FormErrorMessage,
   Input,
   InputGroup,
   InputLeftElement,
 } from '@chakra-ui/react';
 import { BiFilterAlt } from 'react-icons/bi';
-//-------------------------------------------------
+
+//----------------------------------------
 export const Filter = () => {
   const filter = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
 
   const handleChange = e => dispatch(getSearchQuery(e.target.value));
-  const isError = filter === '';
 
   return (
-    <FormControl as="form" isInvalid={isError} mt="6rem">
+    <FormControl as="form">
       <InputGroup>
-        <InputLeftElement>
+        <InputLeftElement color="red.400" fontSize="3xl">
           <BiFilterAlt />
         </InputLeftElement>
         <Input
@@ -31,7 +30,6 @@ export const Filter = () => {
           placeholder="Find contacts by name"
           variant="filled"
         />
-        <FormErrorMessage>Nothing found!</FormErrorMessage>
       </InputGroup>
     </FormControl>
   );

@@ -29,6 +29,18 @@ export const buttonTheme = {
         borderBottom: '0.25rem solid',
       },
     },
+    'back-to-start': {
+      color: 'red.400',
+      _hover: {
+        color: 'blue.400',
+        borderBottom: '0.25rem solid',
+      },
+
+      position: 'absolute',
+      top: '3rem',
+      left: '5rem',
+      rounded: 'full',
+    },
   },
   defaultProps: {
     size: 'lg',
