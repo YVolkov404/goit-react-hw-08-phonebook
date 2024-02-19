@@ -13,7 +13,6 @@ import {
   Heading,
   Input,
   Stack,
-  Text,
   Image,
   VStack,
 } from '@chakra-ui/react';

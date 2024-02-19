@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 import ReactShadowScrollComponent from 'react-shadow-scroll';
 import {
   Container,
-  Avatar,
   Box,
   HStack,
   Stack,
