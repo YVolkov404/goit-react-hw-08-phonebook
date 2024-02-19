@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-
 import { ModalForm } from 'components/form/ModalForm';
 
 import {
@@ -18,22 +16,16 @@ import {
 
 export const ModalBox = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const finalRef = useRef(null);
 
   return (
     <>
-      <Box ref={finalRef} w="100%" mb="1.5rem" textAlign="center">
+      <Box w="100%" mb="1.5rem" textAlign="center">
         <Button w="xs" onClick={onOpen}>
           Add Contact
         </Button>
       </Box>
 
-      <Modal
-        isOpen={isOpen}
-        onClose={onClose}
-        finalFocusRef={finalRef}
-        isCentered
-      >
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>
@@ -46,7 +38,9 @@ export const ModalBox = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Text as="samp">fantom_ass 2024</Text>
+            <Text as="samp" variant="selected">
+              fantom_ass 2024
+            </Text>
           </ModalFooter>
         </ModalContent>
       </Modal>

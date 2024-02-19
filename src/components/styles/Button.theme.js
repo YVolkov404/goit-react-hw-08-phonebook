@@ -8,10 +8,17 @@ export const buttonTheme = {
     transitionDuration: 'normal',
   },
   sizes: {
+    md: {
+      maxW: '444px',
+      p: '2',
+    },
     lg: {
-      fontSize: '3xl',
-      px: '6',
-      h: '14',
+      maxW: '504px',
+      p: '4',
+    },
+    xl: {
+      maxW: '564px',
+      p: '8',
     },
   },
   variants: {
@@ -37,7 +44,7 @@ export const buttonTheme = {
       },
 
       position: 'absolute',
-      top: '3rem',
+      top: '1rem',
       left: '5rem',
       rounded: 'full',
     },

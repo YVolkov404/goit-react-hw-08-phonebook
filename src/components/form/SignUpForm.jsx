@@ -36,7 +36,7 @@ const validation = Yup.object({
     .required('Required'),
 });
 
-//------------------------------------------------------------
+//---------------------------------------------------
 
 export const SingUpForm = () => {
   const dispatch = useDispatch();

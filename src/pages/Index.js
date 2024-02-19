@@ -14,7 +14,7 @@ import homeImg from 'media/home.svg';
 //----------------------------------------
 export function HomePage() {
   return (
-    <Container as="section" variant="primary">
+    <Container as="section" variant="primary" layerStyle="base">
       <VStack spacing={10}>
         <Box>
           <Heading as="h1">Phonebook</Heading>
@@ -35,7 +35,9 @@ export function HomePage() {
           </VStack>
         </VStack>
         <Box>
-          <Text as="samp">fantom_ass 2014</Text>
+          <Text as="samp" variant="selected">
+            fantom_ass 2024
+          </Text>
         </Box>
       </VStack>
     </Container>

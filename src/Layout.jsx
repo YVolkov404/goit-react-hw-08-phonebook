@@ -5,8 +5,8 @@ import { Outlet } from 'react-router-dom';
 
 export const Layout = () => {
   return (
-    <Container basename="root" size="xl" bg="inherit" centerContent>
-      <Suspense fallback={<Spinner thickness="5px" />}>
+    <Container basename="root" minW="420px" centerContent>
+      <Suspense fallback={<Spinner thickness="1.25rem" />}>
         <Outlet />
       </Suspense>
     </Container>

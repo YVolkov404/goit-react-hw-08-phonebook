@@ -1,15 +1,7 @@
-import {
-  Box,
-  Container,
-  Heading,
-  Image,
-  Spacer,
-  VStack,
-} from '@chakra-ui/react';
+import { Container, Heading, Spacer, VStack } from '@chakra-ui/react';
 import { SingUpForm } from 'components/form/SignUpForm';
 import { RegisterNavMenu } from 'components/nav-menu/RegisterNavMenu';
 //------------------------------------------ -
-import registerPgImg from 'media/register.svg';
 
 //-------------------------------------------------------------
 export default function Register() {
@@ -22,14 +14,6 @@ export default function Register() {
         </Heading>
         <SingUpForm />
         <Spacer />
-        <Box position="relative" w="100%">
-          <Image
-            src={registerPgImg}
-            position="absolute"
-            bottom="-2rem"
-            opacity="0.333"
-          />
-        </Box>
       </VStack>
     </Container>
   );

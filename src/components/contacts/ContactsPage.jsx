@@ -7,10 +7,10 @@ import {
   Avatar,
   Box,
   HStack,
-  Text,
   Stack,
   Image,
   StackItem,
+  Heading,
   VStack,
 } from '@chakra-ui/react';
 import { ModalBox } from 'components/modal/Modal';
@@ -39,18 +39,9 @@ export const ContactsPage = () => {
     <Container as="section" variant="secondary">
       <Stack>
         <VStack spacing="2rem">
-          <HStack position="relative">
+          <HStack>
             <Link to="/profile" w="100%">
-              <Text variant="extra" textAlign="left">
-                {user.name}
-              </Text>
-              <Avatar
-                top="-1.75rem"
-                right="-6rem"
-                w="5.25rem"
-                h="5.25rem"
-                variant="roundedSquare"
-              />
+              <Heading>{user.name}</Heading>
             </Link>
           </HStack>
 

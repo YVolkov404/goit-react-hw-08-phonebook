@@ -6,8 +6,8 @@ const container = defineStyle({
   position: 'absolute',
   right: '2.5rem',
   top: '-2.5rem',
-  w: '7.25rem',
-  h: '7.25rem',
+  w: '5.25rem',
+  h: '5.25rem',
   boxShadow: 'xl',
 });
 

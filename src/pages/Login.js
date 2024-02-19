@@ -9,7 +9,7 @@ export default function Login() {
     <Container as="section" variant="secondary">
       <VStack spacing="2.5rem">
         <LoginNavMenu />
-        <Heading as="h1" fontSize="2.7rem">
+        <Heading as="h1" variant="selected">
           Welcome Back
         </Heading>
         <SignInForm />

@@ -14,10 +14,12 @@ import {
   Input,
   Stack,
   Text,
+  Image,
   VStack,
 } from '@chakra-ui/react';
 import { GiCrownedSkull } from 'react-icons/all';
 import { ArrowBackIcon } from '@chakra-ui/icons';
+import profile from '../../media/profile.svg';
 //--------------------------------------
 export const ProfilePage = () => {
   const { user } = useAuth();
@@ -26,7 +28,7 @@ export const ProfilePage = () => {
   return (
     <Container as="section" position="relative" variant="primary">
       <Button as={ReactRouterLink} to={'/contacts'} variant="back-to-start">
-        <ArrowBackIcon size="md" />
+        <ArrowBackIcon size="1g" />
       </Button>
       <VStack
         position="relative"
@@ -71,8 +73,8 @@ export const ProfilePage = () => {
             LogOut
           </Button>
         </Stack>
-        <Box>
-          <Text as="samp">fantom_ass 2014</Text>
+        <Box pos="absolute" bottom="1rem" w="90%">
+          <Image src={profile} alr="Profile" />
         </Box>
       </VStack>
     </Container>
