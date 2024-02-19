@@ -34,7 +34,6 @@ export const InfoPage = () => {
       <VStack
         position="relative"
         w="100%"
-        h="725px"
         mt="3rem"
         p="1.75rem"
         bg="yellow.50"
@@ -84,7 +83,7 @@ export const InfoPage = () => {
             Delete Contact
           </Button>
         </Stack>
-        <Box pos="absolute" bottom="1rem" w="90%">
+        <Box w="90%">
           <Image src={info} alr="Profile" />
         </Box>
       </VStack>

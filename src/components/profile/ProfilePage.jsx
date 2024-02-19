@@ -32,7 +32,6 @@ export const ProfilePage = () => {
       <VStack
         position="relative"
         w="100%"
-        h="46rem"
         mt="3rem"
         p="1.75rem"
         justify="space-between"
@@ -72,7 +71,7 @@ export const ProfilePage = () => {
             LogOut
           </Button>
         </Stack>
-        <Box pos="absolute" bottom="1rem" w="90%">
+        <Box w="90%" mt="3rem">
           <Image src={profile} alr="Profile" />
         </Box>
       </VStack>

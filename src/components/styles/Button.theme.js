@@ -10,15 +10,18 @@ export const buttonTheme = {
   sizes: {
     md: {
       maxW: '444px',
-      p: '2',
+      fontSize: 'lg',
+      p: '1',
     },
     lg: {
       maxW: '504px',
-      p: '4',
+      fontSize: '2xl',
+      p: '2',
     },
     xl: {
-      maxW: '564px',
-      p: '8',
+      maxW: '560px',
+      fontSize: '3xl',
+      p: '3',
     },
   },
   variants: {
@@ -43,14 +46,15 @@ export const buttonTheme = {
         borderBottom: '0.25rem solid',
       },
 
-      position: 'absolute',
-      top: '1rem',
+      pos: 'absolute',
+      w: 'auto',
+      top: '.15rem',
       left: '5rem',
       rounded: 'full',
     },
   },
   defaultProps: {
-    size: 'lg',
+    size: 'xl',
     variant: 'primary',
   },
 };

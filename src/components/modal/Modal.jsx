@@ -20,7 +20,7 @@ export const ModalBox = () => {
   return (
     <>
       <Box w="100%" mb="1.5rem" textAlign="center">
-        <Button w="xs" onClick={onOpen}>
+        <Button w="auto" onClick={onOpen}>
           Add Contact
         </Button>
       </Box>

@@ -33,6 +33,10 @@ const theme = extendTheme({
         w: '100%',
         h: 'auto',
       },
+      a: {
+        display: 'inline-flex',
+        alignSelf: 'center',
+      },
       label: {
         fontFamily: 'Lilita One, serif',
       },
