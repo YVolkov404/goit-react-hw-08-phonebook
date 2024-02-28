@@ -23,7 +23,7 @@ import { filteredContacts } from 'hooks/FilterHook';
 //---------------------------------------------
 export const InfoPage = () => {
   const dispatch = useDispatch();
-  const { name, number } = useSelector(filteredContacts);
+  const contacts = useSelector(filteredContacts);
   const params = useParams();
 
   return (
@@ -53,8 +53,7 @@ export const InfoPage = () => {
               Name
             </FormLabel>
             <Input
-              value={name}
-              placeholder="Contact name"
+              value={contacts.name}
               size="lg"
               readOnly
               _placeholder={{ color: 'blue.400' }}
@@ -64,8 +63,7 @@ export const InfoPage = () => {
               Number
             </FormLabel>
             <Input
-              value={number}
-              placeholder="Phone number"
+              value={contacts.number}
               size="lg"
               readOnly
               _placeholder={{ color: 'blue.400' }}

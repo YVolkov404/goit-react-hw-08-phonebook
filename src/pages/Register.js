@@ -1,4 +1,4 @@
-import { Container, Heading, Spacer, VStack } from '@chakra-ui/react';
+import { Container, HStack, Heading, Spacer, VStack } from '@chakra-ui/react';
 import { SingUpForm } from 'components/form/SignUpForm';
 import { RegisterNavMenu } from 'components/nav-menu/RegisterNavMenu';
 //------------------------------------------ -

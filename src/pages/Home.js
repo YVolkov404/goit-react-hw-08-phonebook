@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 //--------------------------------------------------
-import { HomePage } from './Index';
+import { HomePage } from '../components/home/HomePage';
 import { Layout } from 'Layout';
 
 export default function Home() {

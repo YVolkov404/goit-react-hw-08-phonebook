@@ -14,6 +14,7 @@ import { linkTheme } from 'components/styles/ChakraLink.theme';
 import { avatarTheme } from 'components/styles/Avatar.theme';
 import { textTheme } from 'components/styles/Heading.theme';
 import { headingTheme } from 'components/styles/Heading.theme';
+import { layoutTheme } from 'components/styles/Layout.theme';
 // import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 const theme = extendTheme({
@@ -66,6 +67,7 @@ const theme = extendTheme({
     },
   },
   components: {
+    Layout: layoutTheme,
     Container: containerTheme,
     Heading: headingTheme,
     Text: textTheme,

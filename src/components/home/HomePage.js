@@ -26,7 +26,7 @@ export function HomePage() {
             </Button>
             <Text>for free</Text>
           </HStack>
-          <Image src={homeImg} alr="Cats" />
+          <Image src={homeImg} width={'90%'} alr="Cats" />
           <VStack spacing={2}>
             <Text>already have an account?</Text>
             <Button type="button" as={ReactRouterLink} to="login">

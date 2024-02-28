@@ -11,15 +11,18 @@ export const buttonTheme = {
     md: {
       maxW: '444px',
       fontSize: 'lg',
+      minH: '48px',
       p: '1',
     },
     lg: {
       maxW: '504px',
       fontSize: '2xl',
+      minH: '58px',
       p: '2',
     },
     xl: {
       maxW: '560px',
+      minH: '68px',
       fontSize: '3xl',
       p: '3',
     },

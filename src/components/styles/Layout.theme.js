@@ -68,12 +68,12 @@ export const containerTheme = defineStyleConfig({
 export const layoutTheme = extendTheme({
   layerStyles: {
     base: {
-      bg: 'brand',
-      borderColor: 'brand.extra1',
+      bg: 'green.50',
+      borderColor: 'blue.400',
     },
     selected: {
-      bg: 'brand.second',
-      borderColor: 'brand.extra2',
+      bg: 'yellow.50',
+      borderColor: 'red.400',
     },
   },
 });
