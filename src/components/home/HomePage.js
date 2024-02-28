@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import homeImg from 'media/home.svg';
 //----------------------------------------
-export function HomePage() {
+export const HomePage = () => {
   return (
     <Container as="section" variant="primary" layerStyle="base">
       <VStack spacing={10}>
@@ -42,4 +42,4 @@ export function HomePage() {
       </VStack>
     </Container>
   );
-}
+};
